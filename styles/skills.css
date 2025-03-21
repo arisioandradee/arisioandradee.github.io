@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Ubuntu";
+    color: #FFF;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+body {
+    background-image: linear-gradient(to right, #0f0f0f, #1a1a1a, #2a2a2a, #1e3c72);;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*CONTAINER GERAL*/
+.container{
+    justify-content: center;
+    display: flex;
+}
+
+.glass-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #FFF;
+    min-width: 100vh;
+    border-radius: 15px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    display: block;
+    max-width: 50vw;
+    /*falta centralizar o glass*/
+}
+
+/*NAVBAR*/
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: -10px;
+    font-weight: 600;
+}
+
+.nav-links ul{
+    display: flex;
+    float: right;
+    margin: 0;
+}
+
+.nav-links li{
+    padding: 10px;
+    display: inline-block;
+    list-style: none;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.nav-links li a:hover{
+    color: #2668db;
+    cursor: pointer;
+}
+
+/*MAIN*/
+.main{
+    display: flex;
+    font-family: 30px;
+    margin: 10px;
+    gap: 40px;
+    justify-content: space-around; 
+    text-align: center;
+}
+
+.main i{
+    padding: 10px;
+    font-size: 50px; 
+    color: #fff;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.main i:hover{
+    opacity: 1;
+    color: #2668db;
+    cursor: pointer;
+}
+
+.main .front-end,
+.main .back-end,
+.main .tecnologias {
+    padding: 20px;
+
+}
+
+.icons {
+    margin: 0; /* Remove margens extras */
+    padding: 0; /* Remove padding extras */
+    display: flex;
+    justify-content: center; /* Garante centralização */
+    align-items: center; /* Garante alinhamento */
+}
+
+@media screen and (max-width: 768px) {
+    .glass-container {
+        min-width: 70vw;
+        min-height: 70vw;
+        padding: 10px;
+        margin: 0;
+    }
+
+    .main {
+        font-family: 30px;
+        margin-top: 30px;
+        gap: 10px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo a{
+        font-size: 24px;
+        margin-left: 20px;
+    }
+}
