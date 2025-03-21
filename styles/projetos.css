@@ -172,3 +172,70 @@ body {
         margin-left: 20px;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px; 
+        margin: 10px;
+        padding: 20px; 
+        width: 95%; 
+        box-sizing: border-box;
+    }
+
+    .glass-container {
+        max-width: 95vw;
+        min-height: auto; 
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box; 
+    }
+
+    .projetos {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+    }
+
+    .projeto {
+        padding-bottom: 30px; 
+        width: 100%; 
+        box-sizing: border-box; 
+        height: 33%;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .main p {
+        font-size: 16px;
+        line-height: 24px; 
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 15px; 
+        box-sizing: border-box; 
+    }
+
+    button {
+        padding: 12px 20px; 
+        margin-bottom: 90px; 
+        width: 90%; 
+        box-sizing: border-box; 
+    }
+}
