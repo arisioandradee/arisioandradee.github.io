@@ -182,6 +182,7 @@ body {
     }
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 1000px) and (min-width: 770px){
     /* Sobre mim */
     .logo a{
@@ -212,6 +213,8 @@ body {
 }
 
 
+=======
+>>>>>>> 8d14d0da0c6bc4085edea91f424582565938002c
 @media screen and (max-width: 768px){
         /*Sobre mim*/
 
@@ -308,6 +311,15 @@ body {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+/*menor tela*/
+
+
+
+>>>>>>> 8d14d0da0c6bc4085edea91f424582565938002c
 @media screen and (min-width: 245px) and (max-width: 320px) {
     /* Alinha tudo em coluna */
 
