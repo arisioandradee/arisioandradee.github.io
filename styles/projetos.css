@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    font-family: "Ubuntu";
+    color: #FFF;
+}
+
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+body {
+    background-image: linear-gradient(to right, #0f0f0f, #1a1a1a, #2a2a2a, #1e3c72);;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*CONTAINER GERAL*/
+.container{
+    justify-content: center;
+    display: flex;
+}
+
+.glass-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #FFF;
+    border-radius: 15px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    display: block;
+    max-width: 50vw;
+    /*falta centralizar o glass*/
+}
+
+/*NAVBAR*/
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: -10px;
+    font-weight: 600;
+}
+
+.nav-links ul{
+    display: flex;
+    float: right;
+    margin: 0;
+}
+
+.nav-links li{
+    padding: 10px;
+    display: inline-block;
+    list-style: none;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.nav-links li a:hover{
+    color: #2668db;
+    cursor: pointer;
+}
+
+/*MAIN*/
+.main{
+    display: flex;
+    font-family: 30px;
+    margin: 10px;
+    gap: 40px;
+    justify-content: space-around; 
+    text-align: center;
+}
+
+.main .projetos{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+}
+
+.projeto{
+    padding: 10px;
+    width: 33%;
+    height: 300px;
+}
+.projeto .project-description{
+    text-align: left;
+}
+
+.projeto button{
+    background-color: transparent;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 16px;
+    height: 40px;
+}
+
+.projeto button:hover{
+    background-color: #2668db;
+    border-color: #2668db;
+}
+
+.projeto .icons i{
+    padding: 10px;
+    margin-top: 50px;
+    font-size: 90px;
+    color: orange;
+}
+
+/*Projetos*/
+@media screen and (max-width: 1024px){
+    .projetos {
+        font-size: 15px;
+        margin-top: 0;
+    }
+
+    .projetos .project-description{
+        font-size: 14px;
+    } 
+
+    .projetos .p{
+        font-size: 14px;
+    }
+
+    .projeto .icons i{
+        padding: 10px;
+        margin-top: 50px;
+        font-size: 50px;
+        color: orange;
+    }
+}
+
+@media screen and (max-width: 768px){
+    /*Sobre mim*/
+
+    .glass-container{
+        max-width: 70vw;
+        min-height: 70vw;
+        /*falta centralizar o glass*/
+    }
+
+    .logo a{
+        font-size: 24px;
+    }
+
+    .main h2{
+        font-size: 20px;
+    }
+
+    .main p{
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .perfil img{
+        margin-left: 20px;
+        width: 200px;
+    }
+
+    .contatos{
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px; 
+        margin: 10px;
+        padding: 20px; 
+        width: 95%; 
+        box-sizing: border-box;
+    }
+
+    .glass-container {
+        max-width: 95vw;
+        min-height: auto; 
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box; 
+    }
+
+    .projetos {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+    }
+
+    .projeto {
+        padding-bottom: 30px; 
+        width: 100%; 
+        box-sizing: border-box; 
+        height: 33%;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .main p {
+        font-size: 16px;
+        line-height: 24px; 
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 15px; 
+        box-sizing: border-box; 
+    }
+
+    button {
+        padding: 12px 20px; 
+        margin-bottom: 90px; 
+        width: 90%; 
+        box-sizing: border-box; 
+    }
+}

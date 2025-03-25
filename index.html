@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arisio Andrade - Portfólio</title>
+    
+    <!-- Ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS do AOS (Animações) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-container" data-aos="fade-in" data-aos-duration="1500">
+            <!-- Navbar -->
+            <div class="nav" data-aos="fade-down" data-aos-delay="500">
+                <div class="logo">
+                    <a href="img/favicon.ico"></a>
+                    <a href="#">Arisio Andrade</a>
+                </div> 
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link"><a href="./index.html">Sobre mim</a></li>
+                        <li class="nav-link"><a href="./skills.html">Skills</a></li>
+                        <li class="nav-link"><a href="./projetos.html">Projetos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="main">
+                <div class="main-text" data-aos="fade-up" data-aos-delay="800">
+                    <h2>Olá, sou o <span>Arisio</span></h2>
+                    <p>Tenho 21 anos e sou um desenvolvedor iniciante. Atualmente, sou acadêmico de Sistemas de Informação e estou focado no desenvolvimento Full-Stack. Busco constantemente aprender novas tecnologias e aprimorar minhas habilidades, sempre em busca de crescimento e evolução na área.</p>
+            
+                    <a href="./documents/Curriculo - Arisio Andrade.pdf" download="Arisio Andrade.pdf" class="download-button">
+                        <button>Baixar currículo</button>
+                    </a>
+                </div> 
+
+                <!-- Foto e Contatos -->
+                <div class="perfil">
+                    <div class="main-image" data-aos="fade-left" data-aos-delay="1000">
+                        <a href="#"><img src="./img/foto-principal.png" alt="Arisio"></a>
+                    </div>
+
+                    <div class="contatos" data-aos="fade-up" data-aos-delay="1200">
+                        <div class="contato">
+                            <a href="https://www.linkedin.com/in/arisioandrade/" target="_blank">
+                                <i class="fa-brands fa-linkedin" title="Linkedin"></i>
+                            </a>
+                        </div>
+                        <div class="contato">
+                            <a href="mailto:arisiosaf@gmail.com" target="_blank">
+                                <i class="fa fa-envelope" aria-hidden="true" title="Email"></i>
+                            </a>
+                        </div>
+                        <div class="contato">
+                            <a href="https://wa.me/5588999876936?text=Ol%C3%A1%2C%20estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20seu%20portf%C3%B3lio" target="_blank">
+                                <i class="fa-brands fa-whatsapp" title="Whatsapp"></i>
+                            </a>
+                        </div>
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+
+    <!-- JS do AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500, // Duração da animação
+            once: true // Executa a animação apenas uma vez
+        });
+    </script>
+</body>
+</html>
