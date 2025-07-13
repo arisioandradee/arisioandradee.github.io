@@ -996,9 +996,11 @@ nav .list ul a:hover {
         height: auto;
     }
 
+    .home .social-links ul{
+        justify-content: left;
+    }
+
     nav .list ul a {
         font-size: 16px;
     }
 }
-
-/* DEMAIS ESTILOS JÁ DEFINIDOS PELO USUÁRIO FORAM MANTIDOS COMO ESTÃO. */
