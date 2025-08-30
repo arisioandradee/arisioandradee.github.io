@@ -64,6 +64,7 @@ header nav ul li:hover{
     height: auto;
     border-radius: 20px;
     margin-right: 50px;
+    box-shadow: 5px 10px 55px rgba(131, 88, 88, 0.5);
 }
 
 .home .content {
