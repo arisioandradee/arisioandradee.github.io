@@ -83,7 +83,7 @@ export function Contact() {
             >
               {/* Configurações do FormSubmit */}
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://arisioandradee.github.io/" />
+              <input type="hidden" name="_next" value="https://arisioandrade.vercel.app/" />
               <input type="hidden" name="_subject" value="Nova mensagem do site!" />
               <input type="hidden" name="_template" value="table" />
               <input type="text" name="_honey" style={{ display: "none" }} />
