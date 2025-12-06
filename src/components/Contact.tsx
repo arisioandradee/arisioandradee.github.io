@@ -39,27 +39,22 @@ export function Contact() {
             </h2>
           </div>
 
-          {/* Formulário */}
+          {/* Formulário Web3Forms */}
           <form
-            action="https://formsubmit.co/arisiosaf@gmail.com"
+            action="https://api.web3forms.com/submit"
             method="POST"
             className="p-8 md:p-10 space-y-6"
             onSubmit={() => toast.success("Mensagem enviada com sucesso! 🚀")}
           >
-            {/* Configurações do FormSubmit */}
-            <input type="hidden" name="_captcha" value="false" />
+            {/* CHAVE DO WEB3FORMS */}
             <input
               type="hidden"
-              name="_next"
-              value="https://arisioandrade.vercel.app/"
+              name="access_key"
+              value="28ae3c82-20fd-44ba-8bac-052da7c7b0ca"
             />
-            <input
-              type="hidden"
-              name="_subject"
-              value="Nova mensagem do site!"
-            />
-            <input type="hidden" name="_template" value="table" />
-            <input type="text" name="_honey" style={{ display: "none" }} />
+
+            {/* Só pra evitar spam bots */}
+            <input type="checkbox" name="botcheck" style={{ display: "none" }} />
 
             {/* Grid de campos */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -70,7 +65,7 @@ export function Contact() {
                   name="name"
                   placeholder="Nome"
                   required
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500"
                 />
 
                 <Input
@@ -79,14 +74,14 @@ export function Contact() {
                   type="tel"
                   placeholder="Telefone"
                   required
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500"
                 />
 
                 <Input
                   id="timeline"
                   name="timeline"
                   placeholder="Prazo"
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500"
                 />
               </div>
 
@@ -98,14 +93,14 @@ export function Contact() {
                   name="email"
                   placeholder="Email"
                   required
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500"
                 />
 
                 <Input
                   id="service"
                   name="service"
                   placeholder="Serviço de Interesse"
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500"
                 />
 
                 <Textarea
@@ -114,7 +109,7 @@ export function Contact() {
                   placeholder="Detalhes do Projeto..."
                   rows={6}
                   required
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 focus:ring-orange-500 rounded-md resize-none min-h-[140px]"
+                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-orange-500 resize-none min-h-[140px]"
                 />
               </div>
             </div>
