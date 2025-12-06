@@ -10,9 +10,7 @@ export function Contact() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
       { threshold: 0.2 }
     );
 
@@ -32,7 +30,6 @@ export function Contact() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {/* Cabeçalho */}
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Entre em contato
@@ -46,19 +43,25 @@ export function Contact() {
             className="p-8 md:p-10 space-y-6"
             onSubmit={() => toast.success("Mensagem enviada com sucesso! 🚀")}
           >
-            {/* CHAVE DO WEB3FORMS */}
+            {/* CHAVE WEB3FORMS */}
             <input
               type="hidden"
               name="access_key"
               value="28ae3c82-20fd-44ba-8bac-052da7c7b0ca"
             />
 
-            {/* Só pra evitar spam bots */}
+            {/* Redirect para seu site */}
+            <input
+              type="hidden"
+              name="redirect"
+              value="https://arisioandrade.vercel.app"
+            />
+
+            {/* anti-bot */}
             <input type="checkbox" name="botcheck" style={{ display: "none" }} />
 
-            {/* Grid de campos */}
+            {/* Campos */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Coluna Esquerda */}
               <div className="space-y-6">
                 <Input
                   id="name"
@@ -85,7 +88,6 @@ export function Contact() {
                 />
               </div>
 
-              {/* Coluna Direita */}
               <div className="space-y-6 flex flex-col">
                 <Input
                   id="email"
@@ -114,7 +116,6 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Botão Enviar */}
             <div className="flex justify-end mt-6">
               <Button
                 type="submit"
