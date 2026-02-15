@@ -69,7 +69,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground"
+              className="text-white hover:bg-white/10 h-10 w-10"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
