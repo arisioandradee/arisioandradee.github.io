@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
@@ -83,10 +83,18 @@ const projects = [
 export function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-navy-premium relative">
-      <div className="container px-4 overflow-visible">
+    <section id="projects" className="py-24 md:py-32 bg-navy-premium relative overflow-hidden">
+      <div className="container px-4 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,8 +115,8 @@ export function Projects() {
         </motion.div>
 
         {/* Carousel Container */}
-        <div className="relative h-[700px] w-full flex items-center justify-center overflow-visible">
-          <div className="relative w-full max-w-6xl h-full flex items-center justify-center overflow-visible">
+        <div className="relative h-[700px] w-full flex items-center justify-center overflow-hidden">
+          <div className="relative w-full max-w-6xl h-full flex items-center justify-center overflow-hidden">
             <AnimatePresence initial={false} mode="popLayout">
               {[-1, 0, 1].map((offset) => {
                 const index = (activeIndex + offset + projects.length) % projects.length;
@@ -117,15 +125,15 @@ export function Projects() {
                 return (
                   <motion.div
                     key={`${project.title}-${index}`}
-                    initial={{ opacity: 0, scale: 0.8, x: offset * 500 }}
+                    initial={{ opacity: 0, scale: 0.8, x: offset * (isMobile ? 340 : 500) }}
                     animate={{
                       opacity: offset === 0 ? 1 : 0.3,
                       scale: offset === 0 ? 1 : 0.8,
-                      x: offset * 450,
+                      x: offset * (isMobile ? 340 : 450),
                       zIndex: offset === 0 ? 10 : 0,
                       filter: offset === 0 ? "blur(0px)" : "blur(6px)",
                     }}
-                    exit={{ opacity: 0, scale: 0.8, x: offset * 500 }}
+                    exit={{ opacity: 0, scale: 0.8, x: offset * (isMobile ? 340 : 500) }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="absolute w-full max-w-[550px] cursor-pointer"
                     onClick={() => {
