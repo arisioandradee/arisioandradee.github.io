@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 flex flex-col items-center px-4 pointer-events-none">
       <div
-        className={`w-[95%] md:w-auto max-w-fit mx-auto px-6 h-14 flex items-center justify-between md:justify-center gap-8 transition-all duration-300 pointer-events-auto ${isScrolled
+        className={`w-[95%] md:w-auto md:max-w-fit mx-auto px-6 h-14 flex items-center justify-end md:justify-center gap-8 transition-all duration-300 pointer-events-auto ${isScrolled
           ? "bg-background/80 backdrop-blur-xl shadow-2xl border border-white/10 rounded-full"
           : "bg-background/40 backdrop-blur-md border border-white/5 rounded-full"
           }`}
@@ -56,7 +56,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 md:border-l md:border-white/10 md:pl-8 ml-auto md:ml-0">
+        <div className="flex items-center gap-4 md:border-l md:border-white/10 md:pl-8">
           <Button
             className="hidden md:inline-flex bg-cyan-500 hover:bg-cyan-600 text-white rounded-full px-6 h-9 font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-cyan-500/20 border-none"
             onClick={() => handleScrollToSection('contact')}
@@ -78,7 +78,7 @@ export function Navbar() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-20 right-4 w-auto min-w-[200px] z-50">
+        <div className="md:hidden fixed top-24 right-6 w-48 z-50">
           <div className="bg-background/95 backdrop-blur-md rounded-2xl overflow-hidden animate-in slide-in-from-top-4 border border-border shadow-2xl flex flex-col p-2 pointer-events-auto">
             {navItems.map((item) => (
               <Button
@@ -105,5 +105,4 @@ export function Navbar() {
       )}
     </nav>
   );
-}
 
