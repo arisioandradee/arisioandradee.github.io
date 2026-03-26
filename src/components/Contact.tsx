@@ -1,118 +1,128 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
-import { toast } from "sonner";
-import { Send, Phone, Mail, Clock, Github, Linkedin } from "lucide-react";
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Send, CheckCircle } from 'lucide-react';
 
-export function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulation
+  const handleSubmit = (e: React.FormEvent) => {
+    // We don't preventDefault fully if using target="hidden_iframe", 
+    // but we can trigger the UI state change.
     setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Mensagem enviada com sucesso! 🚀");
-    }, 1000);
+      setSubmitted(true);
+      if (formRef.current) formRef.current.reset();
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000);
+    }, 500);
   };
-
-  const contactInfo = [
-    { icon: Mail, title: "Email", value: "arisiosaf@gmail.com" },
-    { icon: Phone, title: "Telefone", value: "+55 88 9 9987-6936" },
-    { icon: Clock, title: "Disponibilidade", value: "Segunda a Sexta, 8h às 18h" },
-  ];
-
-  const socialLinks = [
-    { icon: Linkedin, href: "https://www.linkedin.com/in/arisioandrade/" },
-    { icon: Github, href: "https://github.com/arisioandrade" },
-  ];
-
   return (
-    <section id="contact" className="py-24 md:py-32 bg-off-white-premium relative overflow-hidden">
-      <div className="container px-4 relative z-10 text-slate-900">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <span className="text-xs md:text-sm text-cyan-500 font-bold tracking-[0.3em] uppercase block mb-4">
-            Contato
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-6">
-            Vamos conversar sobre seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Próximo Projeto</span>?
-          </h2>
-          <p className="text-slate-600 text-lg">
+    <section id="contact" className="py-24 px-6 bg-stone-50 text-stone-900">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-16 text-center space-y-4">
+          <span className="font-headline text-stone-400 text-xs tracking-[0.4em] uppercase font-bold block">Contato</span>
+          <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter text-stone-900 leading-tight">
+            Vamos conversar sobre seu <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-900 to-stone-400">Próximo Projeto</span>?
+          </h1>
+          <p className="text-stone-500 text-lg font-medium">
             Estou sempre aberto a novos desafios e oportunidades de colaboração.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Formulário Centralizado */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+        <div className="bg-white p-8 md:p-16 rounded-[3rem] border border-stone-100 shadow-2xl shadow-stone-200/50 relative overflow-hidden">
+          {/* Success Overlay */}
+          <AnimatePresence>
+            {submitted && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-50 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8"
+              >
+                <CheckCircle className="text-green-500 mb-4" size={64} />
+                <h3 className="text-2xl font-headline font-bold text-stone-900">Mensagem Enviada!</h3>
+                <p className="text-stone-500 mt-2">Obrigado pelo contato. Retornarei em breve.</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <form 
+            ref={formRef}
+            className="space-y-8"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfEb-TaOI0PeXblNmn5KOivQgTGzRniZCjvmcUR0PzsPH8Tvg/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            onSubmit={handleSubmit}
           >
-            <Card className="bg-white/80 backdrop-blur-sm border-slate-200 shadow-xl shadow-slate-200/50 p-8 md:p-12 rounded-3xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-slate-700 ml-1">Nome</label>
-                    <Input
-                      name="name"
-                      placeholder="Como posso te chamar?"
-                      required
-                      className="bg-slate-50 border-slate-200 focus:border-cyan-500 h-12 rounded-xl text-slate-900"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-slate-700 ml-1">Email</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="seu@email.com"
-                      required
-                      className="bg-slate-50 border-slate-200 focus:border-cyan-500 h-12 rounded-xl text-slate-900"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 ml-1">Assunto</label>
-                  <Input
-                    name="subject"
-                    placeholder="No que posso te ajudar?"
-                    required
-                    className="bg-slate-50 border-slate-200 focus:border-cyan-500 h-12 rounded-xl text-slate-900"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 ml-1">Mensagem</label>
-                  <Textarea
-                    name="message"
-                    placeholder="Conte-me um pouco mais..."
-                    required
-                    className="bg-slate-50 border-slate-200 focus:border-cyan-500 min-h-[150px] rounded-xl text-slate-900"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full h-14 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-bold transition-all duration-300 shadow-lg shadow-cyan-500/25 gap-2"
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                  <Send className="w-4 h-4" />
-                </Button>
-              </form>
-            </Card>
-          </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-sm font-bold text-stone-900 ml-1">Nome</label>
+                <input
+                  name="entry.1187891360"
+                  className="w-full bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 py-5 px-6 rounded-2xl focus:ring-2 focus:ring-stone-900/10 transition-all duration-300 outline-none font-medium"
+                  placeholder="Como posso te chamar?"
+                  type="text"
+                  required
+                />
+              </div>
+              <div className="space-y-3">
+                <label className="text-sm font-bold text-stone-900 ml-1">Email</label>
+                <input
+                  name="entry.1030660310"
+                  className="w-full bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 py-5 px-6 rounded-2xl focus:ring-2 focus:ring-stone-900/10 transition-all duration-300 outline-none font-medium"
+                  placeholder="seu@email.com"
+                  type="email"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <label className="text-sm font-bold text-stone-900 ml-1">Assunto</label>
+              <input
+                name="entry.917003457"
+                className="w-full bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 py-5 px-6 rounded-2xl focus:ring-2 focus:ring-stone-900/10 transition-all duration-300 outline-none font-medium"
+                placeholder="No que posso te ajudar?"
+                type="text"
+                required
+              />
+            </div>
+
+            <div className="space-y-3">
+              <label className="text-sm font-bold text-stone-900 ml-1">Mensagem</label>
+              <textarea
+                name="entry.155359387"
+                className="w-full bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 py-5 px-6 rounded-2xl focus:ring-2 focus:ring-stone-900/10 transition-all duration-300 outline-none resize-none font-medium"
+                placeholder="Conte-me um pouco mais..."
+                rows={6}
+                required
+              ></textarea>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group flex items-center justify-center space-x-3 bg-stone-900 text-white font-bold text-lg py-6 px-10 rounded-2xl w-full transition-all duration-300 shadow-xl shadow-stone-900/20 hover:bg-black"
+              type="submit"
+            >
+              <span>Enviar Mensagem</span>
+              <Send className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={20} />
+            </motion.button>
+          </form>
+          {/* Hidden iframe to handle Google Form response without redirection */}
+          <iframe 
+            name="hidden_iframe" 
+            id="hidden_iframe" 
+            style={{ display: 'none' }}
+            onLoad={() => {
+              // Note: This trigger might fire on initial load too, 
+              // but since 'submitted' is false, it's safe.
+            }}
+          />
         </div>
+
+
       </div>
     </section>
   );

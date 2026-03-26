@@ -1,40 +1,17 @@
-import { motion } from "framer-motion";
-
-export function Footer() {
-  const currentYear = new Date().getFullYear();
-
+export default function Footer() {
   return (
-    <footer className="relative py-12 bg-background border-t border-border">
-      <div className="container px-4 relative z-10">
-        <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="flex flex-col md:flex-row items-center gap-6 md:gap-12"
-          >
-            <a href="mailto:arisiosaf@gmail.com" className="text-sm text-muted-foreground hover:text-cyan-500 transition-colors">
-              arisiosaf@gmail.com
-            </a>
-            <span className="hidden md:block w-1.5 h-1.5 rounded-full bg-border" />
-            <a href="tel:+558899876936" className="text-sm text-muted-foreground hover:text-cyan-500 transition-colors">
-              +55 88 9 9987-6936
-            </a>
-          </motion.div>
-
-          <div className="w-full max-w-sm border-t border-border" />
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} Arisio Andrade. Desenvolvido com <span className="text-cyan-500">foco</span> e <span className="text-cyan-500">disciplina</span>.
-            </p>
-          </motion.div>
+    <footer className="bg-black w-full py-12 border-t border-stone-800">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <span className="text-lg font-bold text-white font-headline">Neon Architect</span>
+          <p className="text-stone-500 text-sm tracking-wide">© 2024 Neon Architect. Built with precision.</p>
+        </div>
+        <div className="flex gap-8">
+          <a className="text-stone-500 hover:text-white transition-colors text-sm tracking-wide" href="#">GitHub</a>
+          <a className="text-stone-500 hover:text-white transition-colors text-sm tracking-wide" href="#">LinkedIn</a>
+          <a className="text-stone-500 hover:text-white transition-colors text-sm tracking-wide" href="#">Source Code</a>
         </div>
       </div>
     </footer>
   );
 }
-

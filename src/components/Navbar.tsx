@@ -1,109 +1,41 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useActiveSection } from "@/hooks/useActiveSection";
+import { motion } from 'motion/react';
+import { cn } from '@/src/lib/utils';
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const activeSection = useActiveSection();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navItems = [
-    { label: "Início", id: "hero" },
-    { label: "Sobre mim", id: "about" },
-    { label: "Projetos", id: "projects" },
-    { label: "Entre em contato", id: "contact" },
+export default function Navbar() {
+  const navLinks = [
+    { name: 'Início', href: '#home' },
+    { name: 'Sobre mim', href: '#about' },
+    { name: 'Projetos', href: '#projects' },
   ];
 
-  const handleScrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 flex flex-col items-center px-4 pointer-events-none">
-      <div
-        className={`w-[95%] md:w-auto md:max-w-fit mx-auto px-6 h-14 flex items-center justify-end md:justify-center gap-8 transition-all duration-300 pointer-events-auto ${isScrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-2xl border border-white/10 rounded-full"
-          : "bg-background/40 backdrop-blur-md border border-white/5 rounded-full"
-          }`}
-      >
-        <div className="hidden md:flex items-center space-x-1">
-          {navItems.map((item) => (
-            <Button
-              key={item.id}
-              variant="ghost"
-              className={`transition-all duration-300 hover:scale-105 rounded-full px-4 h-9 ${activeSection === item.id
-                ? "text-cyan-400 font-bold bg-cyan-500/10"
-                : "text-muted-foreground hover:text-foreground"
-                }`}
-              onClick={() => handleScrollToSection(item.id)}
-            >
-              {item.label}
-            </Button>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-4 md:border-l md:border-white/10 md:pl-8">
-          <Button
-            className="hidden md:inline-flex bg-cyan-500 hover:bg-cyan-600 text-white rounded-full px-6 h-9 font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-cyan-500/20 border-none"
-            onClick={() => handleScrollToSection('contact')}
-          >
-            Entre em contato
-          </Button>
-
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:bg-white/10 h-10 w-10"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-panel rounded-full border border-outline-variant/20 px-2 py-2 flex items-center gap-2 md:gap-6 shadow-2xl backdrop-blur-xl">
+      <div className="flex items-center px-4">
+        <div className="text-xl font-black text-primary tracking-tighter font-headline">
+          Vini.
         </div>
       </div>
+      
+      <div className="hidden md:flex items-center space-x-6 font-headline font-bold tracking-tight text-sm">
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="text-on-surface opacity-70 hover:text-primary hover:opacity-100 transition-all duration-300"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
 
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed top-24 right-6 w-48 z-50">
-          <div className="bg-background/95 backdrop-blur-md rounded-2xl overflow-hidden animate-in slide-in-from-top-4 border border-border shadow-2xl flex flex-col p-2 pointer-events-auto">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                className={`justify-start transition-colors rounded-xl ${activeSection === item.id
-                  ? "text-cyan-400 bg-cyan-500/10 font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-                onClick={() => handleScrollToSection(item.id)}
-              >
-                {item.label}
-              </Button>
-            ))}
-            <Button
-              variant="ghost"
-              className="justify-start transition-colors rounded-xl text-muted-foreground hover:text-foreground mt-2 border-t border-border pt-2"
-              onClick={() => handleScrollToSection('contact')}
-            >
-              Entre em contato
-            </Button>
-          </div>
-        </div>
-      )}
+      <motion.a
+        href="#contact"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-secondary text-on-primary-fixed px-6 py-2.5 rounded-full font-bold text-sm shadow-[0px_0px_15px_rgba(213,117,255,0.3)]"
+      >
+        Contato
+      </motion.a>
     </nav>
   );
 }
-
