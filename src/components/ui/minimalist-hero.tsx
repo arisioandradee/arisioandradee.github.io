@@ -18,6 +18,8 @@ interface MinimalistHeroProps {
   socialLinks: { icon: LucideIcon; href: string }[];
   locationText: string;
   className?: string;
+  stats?: { value: string; label: string }[];
+  techStack?: { name: string; icon: string; color: string }[];
 }
 
 // Helper component for navigation links
@@ -49,14 +51,26 @@ export const MinimalistHero = ({
   socialLinks,
   locationText,
   className,
+  stats,
+  techStack,
 }: MinimalistHeroProps) => {
   return (
-    <div
-      className={cn(
-        'relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-black p-8 font-sans md:p-12',
-        className
-      )}
-    >
+     <div
+       className={cn(
+         'relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-black p-8 font-sans md:p-12',
+         className
+       )}
+     >
+       {/* Background Grid */}
+       <div 
+         className="absolute inset-0 z-0 opacity-[0.15]" 
+         style={{ 
+           backgroundImage: `linear-gradient(#262626 1px, transparent 1px), linear-gradient(90deg, #262626 1px, transparent 1px)`,
+           backgroundSize: 'clamp(30px, 5vw, 60px) clamp(30px, 5vw, 60px)',
+           maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+           WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
+         }} 
+       />
       {/* Header */}
       <header className="z-30 flex w-full max-w-7xl items-center justify-between">
         {logoText && (
@@ -96,12 +110,32 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left"
+          className="z-20 order-2 md:order-1 text-center md:text-left md:pr-12"
         >
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-stone-100/80 md:mx-0">{mainText}</p>
-          <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-stone-100 underline decoration-from-font">
+          <p className="mx-auto max-w-md text-base md:text-lg leading-relaxed text-stone-100/70 md:mx-0 mb-8 font-medium">{mainText}</p>
+          <motion.a 
+            href={readMoreLink} 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-white text-black text-xs font-black uppercase tracking-[0.2em] rounded-full hover:bg-stone-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)] inline-flex items-center gap-2"
+          >
             Saiba Mais
-          </a>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L11 1M11 1H1M11 1V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </motion.a>
+
+          {/* Compact Stats */}
+          {stats && (
+            <div className="mt-16 flex items-center gap-12 border-t border-stone-800/50 pt-10">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="space-y-1">
+                  <div className="text-3xl font-black text-stone-100 tracking-tighter">{stat.value}</div>
+                  <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </motion.div>
 
         {/* Center Vertical Band & Image */}
@@ -130,48 +164,74 @@ export const MinimalistHero = ({
             />
           </div>
 
-          {/* Signature Text - Horizontal Premium Style */}
+        </div>
+
+        {/* Right Text Content - Aligned exactly right of the photo background */}
+        <div className="z-20 order-3 hidden md:flex flex-col justify-center items-start pl-8 lg:pl-16 h-full gap-12">
+          {overlayText && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="pointer-events-none text-left"
+            >
+              <h1 className="text-7xl lg:text-[10rem] font-black text-stone-100/5 leading-[0.85] tracking-tighter mix-blend-plus-lighter">
+                {overlayText.part1}
+                <br />
+                {overlayText.part2}
+              </h1>
+            </motion.div>
+          )}
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="absolute -right-24 md:-right-48 lg:-right-96 bottom-[15%] z-20 pointer-events-none"
+            className="pointer-events-none text-left pl-2 mt-4"
           >
-            <p className="text-4xl md:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase whitespace-normal leading-[0.85] bg-gradient-to-r from-stone-100 to-stone-500 bg-clip-text text-transparent">
+            <p className="text-2xl lg:text-4xl font-headline font-black tracking-tighter uppercase whitespace-normal leading-[0.85] bg-gradient-to-r from-stone-100 to-stone-500 bg-clip-text text-transparent opacity-80">
               Portfolio <br /> Arisio <br /> Andrade
             </p>
           </motion.div>
         </div>
-
-        {/* Right Text */}
-        {overlayText && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
-          >
-            <h1 className="text-7xl font-extrabold text-stone-100 md:text-8xl lg:text-9xl">
-              {overlayText.part1}
-              <br />
-              {overlayText.part2}
-            </h1>
-          </motion.div>
-        )}
       </div>
 
-      {/* Footer Elements */}
-      <footer className="z-30 flex w-full max-w-7xl items-center justify-between">
+      {/* Tech Marquee & Socials (Absolute Bottom) */}
+      <div className="absolute bottom-16 left-0 right-0 z-30 flex flex-col items-center gap-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
-          className="flex items-center space-x-4"
+          className="flex items-center space-x-6 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/5"
         >
           {socialLinks.map((link, index) => (
             <SocialIcon key={index} href={link.href} icon={link.icon} />
           ))}
         </motion.div>
+
+        {techStack && (
+          <div className="w-full pointer-events-none opacity-40 hover:opacity-100 transition-opacity">
+            <div className="relative overflow-hidden group">
+              <motion.div 
+                className="flex gap-16 w-max py-2"
+                animate={{ x: ["0%", "-33.33%"] }}
+                transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 50, ease: "linear" } }}
+              >
+                {[...techStack, ...techStack, ...techStack].map((tech, idx) => (
+                  <div key={`${tech.name}-${idx}`} className="flex items-center gap-2 grayscale brightness-200">
+                    <img src={`https://cdn.simpleicons.org/${tech.icon}/${tech.color}`} alt={tech.name} className="w-4 h-4" />
+                    <span className="text-[10px] font-black text-stone-300 uppercase tracking-widest">{tech.name}</span>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Footer Elements */}
+      <footer className="z-30 flex w-full max-w-7xl items-center justify-between">
+        <div /> {/* Spacer for left side */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

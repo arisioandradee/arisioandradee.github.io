@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, Code, Terminal, Briefcase, User } from 'lucide-react';
+import { Github, Lock, Code, Terminal, Briefcase, User } from 'lucide-react';
 
 export default function Projects() {
   const [category, setCategory] = useState<'pessoal' | 'empresarial'>('pessoal');
@@ -8,68 +8,74 @@ export default function Projects() {
   const projects = [
     {
       title: 'Melhor Lead',
-      description: 'Sistema inteligente de prospecção e validação de leads, desenvolvido para otimizar a busca por clientes potenciais a partir de dados oficiais e confiáveis da Receita Federal.\n\nA plataforma integra múltiplas APIs especializadas — como Assertiva, Asaas e Casa dos Dados — permitindo a coleta, enriquecimento e verificação de informações empresariais em escala nacional. Com isso, o sistema é capaz de identificar leads qualificados, fornecendo dados atualizados como CNPJ, razão social, situação cadastral e contatos validados.\n\nAlém da coleta de dados, o Melhor Lead foi projetado para garantir maior assertividade nas estratégias comerciais, reduzindo retrabalho e aumentando a eficiência na prospecção. A aplicação possibilita centralizar informações relevantes em um único ambiente, facilitando a análise e tomada de decisão.\n\nO projeto também contempla integração entre front-end e back-end, organização de dados e automação de processos, demonstrando na prática habilidades em consumo de APIs, manipulação de dados e desenvolvimento de soluções voltadas para o mercado.',
-      tags: ['RECEITA FEDERAL', 'ASSERTIVA', 'ASAAS', 'API'],
-      colSpan: 'md:col-span-6',
+      description: 'Sistema inteligente de prospecção e validação de leads com dados da Receita Federal, integrado às APIs Casa dos Dados e Assertiva. Enriquece informações com redes sociais e dados dos sócios, além de contar com integração ao Asaas para gestão de pagamentos.',
+      colSpan: 'md:col-span-8',
       category: 'empresarial',
-      isPrivate: true
+      isPrivate: true,
+      image: '/melhorLead.png',
+      imagePosition: 'object-top',
+      gradient: 'from-blue-600/20 via-indigo-600/10 to-transparent'
     },
     {
       title: 'Dibai Academy',
-      description: 'Landing page desenvolvida com foco na captação de novos alunos para a Dibai Academy, com estrutura voltada para conversão e apresentação clara dos serviços oferecidos.\n\nA página foi projetada seguindo boas práticas de design e experienciar do usuário, organizando informações de forma estratégica para despertar interesse e incentivar o contato. Conta com seções como apresentação institucional, benefícios, propostas de valor e chamadas para ação (CTAs), direcionando o visitante ao próximo passo no funil de vendas.\n\nO projeto demonstra habilidades em desenvolvimento front-end, estruturação de layout responsivo e criação de interfaces voltadas para objetivos comerciais, utilizando HTML, CSS e conceitos de design moderno.',
-      tags: ['WEB', 'CAPTAÇÃO', 'CONVERSÃO', 'MARKETING'],
-      colSpan: 'md:col-span-6',
+      description: 'Landing page desenvolvida com foco na captação de novos alunos para a Dibai Academy, com estrutura voltada para conversão.',
+      colSpan: 'md:col-span-4',
       category: 'empresarial',
-      isPrivate: true
+      isPrivate: true,
+      image: '/dibaiAcademy.png',
+      gradient: 'from-emerald-600/20 via-teal-600/10 to-transparent'
     },
     {
       title: 'Central Dibai Sales',
-      description: 'Plataforma web centralizada para gestão e automação de processos comerciais, com foco na validação de dados e otimização da operação de vendas.\n\nA aplicação foi desenvolvida para reunir, em um único ambiente, diferentes ferramentas de validação e enriquecimento de informações, permitindo maior agilidade e organização no fluxo comercial. Com isso, é possível reduzir tarefas manuais e aumentar a eficiência na análise de leads.\n\nNo back-end, foi utilizada uma arquitetura baseada em microserviços com FastAPI, aliada a processamento assíncrono para garantir rapidez nas requisições e validações em tempo real. A integração com serviços externos permite centralizar dados e automatizar etapas importantes do processo de vendas.\n\nO projeto demonstra habilidades em desenvolvimento de APIs, integração de sistemas, processamento assíncrono e construção de soluções escaláveis voltadas para o contexto comercial.',
-      tags: ['FASTAPI', 'IA', 'VALIDADORES', 'ASYNC'],
+      description: 'Plataforma web centralizada que reúne ferramentas essenciais do dia a dia, como conversores, validadores de e-mail e WhatsApp, além de um transcritor, otimizando tarefas e aumentando a produtividade.',
       colSpan: 'md:col-span-6',
       category: 'empresarial',
-      isPrivate: true
+      isPrivate: true,
+      image: '/centralDibai.png',
+      gradient: 'from-orange-600/20 via-red-600/10 to-transparent'
     },
     {
       title: 'Dibai P.A.',
-      description: 'Sistema web desenvolvido para o gerenciamento de PAs operacionais, com foco no acompanhamento de métricas e análise de performance em tempo real.\n\nA plataforma permite visualizar e organizar dados operacionais de forma centralizada, facilitando o monitoramento de indicadores importantes e apoiando a tomada de decisões. A interface foi pensada para oferecer clareza nas informações e agilidade no uso diário.\n\nA aplicação foi construída seguindo uma arquitetura modular, aplicando boas práticas de desenvolvimento para garantir escalabilidade, organização do código e facilidade de manutenção. O sistema também foi otimizado para lidar com processamento de dados de forma eficiente, assegurando respostas rápidas mesmo com maior volume de informações.\n\nO projeto demonstra habilidades em desenvolvimento de sistemas web, organização de arquitetura, manipulação de dados e construção de soluções voltadas para cenários reais de operação.',
-      tags: ['MÉTRICAS', 'DADOS', 'REAL-TIME'],
+      description: 'Sistema web desenvolvido para o gerenciamento de PAs operacionais, com foco no acompanhamento de métricas e análise de performance em tempo real.',
       colSpan: 'md:col-span-6',
       category: 'empresarial',
-      isPrivate: true
+      isPrivate: true,
+      image: '/pa.png',
+      gradient: 'from-stone-600/20 via-stone-800/10 to-transparent'
     },
     {
       title: 'Nutr.IA',
-      description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.\n\nA plataforma permite criar dietas adaptadas a diferentes perfis e objetivos, organizando informações de forma clara e prática para o usuário. O sistema considera variáveis como preferências, restrições e metas, buscando gerar sugestões coerentes e aplicáveis no dia a dia.\n\nA solução utiliza técnicas de engenharia de prompt para obter respostas mais precisas dos modelos de linguagem, aliadas à validação de dados nutricionais por meio de APIs externas, garantindo maior consistência nas informações geradas.\n\nO projeto demonstra habilidades no uso de inteligência artificial aplicada, integração com APIs, manipulação de dados e desenvolvimento de soluções voltadas para personalização de conteúdo.',
-      tags: ['GEMINI', 'AI', 'PROMPT ENGINE'],
+      description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.',
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
-      colSpan: 'md:col-span-6',
-      category: 'pessoal'
+      colSpan: 'md:col-span-7',
+      category: 'pessoal',
+      gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
     },
     {
-      title: 'AutoStore Hub',
-      description: 'Aplicação web desenvolvida como projeto prático para uma loja de veículos, com o objetivo de simular uma solução moderna de presença digital e gestão de estoque.\n\nA plataforma foi construída com foco em design moderno e estratégias de conversão, utilizando chamadas para ação (CTAs) bem posicionadas. Além da interface pública, o sistema conta com um catálogo integrado onde funcionários podem gerenciar veículos disponíveis.\n\nUm dos diferenciais é a integração com WhatsApp, permitindo que o cliente envie uma mensagem personalizada diretamente sobre um veículo específico, agilizando o atendimento e a conversão.\n\nO projeto demonstra habilidades em sistemas dinâmicos, integração com banco de dados e construção de interfaces voltadas para experiência do usuário.',
-      tags: ['WEB', 'WHATSAPP', 'DB', 'CONVERSÃO'],
-      colSpan: 'md:col-span-6',
+      title: 'Catálogo de Carros',
+      description: 'Aplicação web desenvolvida para uma loja de veículos, simulando uma solução moderna de presença digital e gestão de estoque.',
+      colSpan: 'md:col-span-5',
       category: 'pessoal',
       isPrivate: true,
-      privateLabel: 'Projeto pessoal privado'
+      image: '/catalogoCarros.png',
+      gradient: 'from-cyan-600/20 via-blue-600/10 to-transparent'
     },
     {
       title: 'HelpDesk',
-      description: 'Aplicação full-stack desenvolvida para gerenciamento de chamados de suporte técnico, com foco na organização, acompanhamento e resolução de solicitações.\n\nA plataforma permite o controle completo dos chamados, organizando informações como status, prioridade e histórico de interações. A interface foi pensada para facilitar o fluxo de atendimento e melhorar a comunicação entre usuários e equipe.\n\nNo back-end, foi utilizado Spring Boot para construção de uma API robusta, enquanto o front-end utiliza Angular com Signals para gerenciamento de estado reativo, proporcionando atualizações dinâmicas e melhor experiência em tempo real.',
-      tags: ['SPRING BOOT', 'ANGULAR', 'SIGNALS'],
+      description: 'Aplicação full-stack desenvolvida para gerenciamento de chamados de suporte técnico, com foco na organização e resolução.',
       github: 'https://github.com/arisioandradee/helpdesk-project',
       colSpan: 'md:col-span-6',
-      category: 'pessoal'
+      category: 'pessoal',
+      image: '/helpdesks.png',
+      gradient: 'from-indigo-600/20 via-blue-600/10 to-transparent'
     },
     {
       title: 'Sistema de Aprendizagem',
-      description: 'Plataforma web interativa desenvolvida para conectar estudantes e professores, permitindo a criação e acesso a cursos práticos de forma organizada e acessível.\n\nA aplicação possibilita o gerenciamento de conteúdos educacionais, facilitando a distribuição de materiais, acompanhamento de atividades e interação entre os usuários. A estrutura foi pensada para oferecer uma navegação simples e intuitiva.\n\nO sistema foi desenvolvido com uma arquitetura modular, aplicando boas práticas para garantir organização, escalabilidade e facilidade de manutenção.',
-      tags: ['WEB', 'EDUCAÇÃO', 'MODULAR'],
+      description: 'Plataforma web interativa desenvolvida para conectar estudantes e professores, permitindo a criação e acesso a cursos práticos.',
       github: 'https://github.com/arisioandradee/sistema-aprendizagem',
       colSpan: 'md:col-span-6',
-      category: 'pessoal'
+      category: 'pessoal',
+      gradient: 'from-amber-600/20 via-yellow-600/10 to-transparent'
     },
   ];
 
@@ -124,62 +130,75 @@ export default function Projects() {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-12 gap-8"
+          className="grid grid-cols-1 md:grid-cols-12 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, idx) => (
+            {filteredProjects.map((project: any, idx) => (
               <motion.div
                 key={project.title}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className={`${project.colSpan} flex flex-col group relative overflow-hidden rounded-[2.5rem] bg-stone-900 transition-all duration-500 hover:shadow-2xl hover:shadow-stone-900/50 border border-stone-800 p-2`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className={`${project.colSpan} group relative overflow-hidden rounded-[2.5rem] bg-stone-900/40 backdrop-blur-2xl transition-all duration-700 hover:shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10 hover:border-white/20 flex flex-col`}
               >
-                {project.image && (
-                  <div className="bg-black rounded-[2rem] overflow-hidden">
-                    <div className="aspect-video w-full overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 group-hover:opacity-80"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
+                {/* Image Placeholder / Tech Visual */}
+                <div className="relative h-48 overflow-hidden bg-stone-950/50">
+                   {project.image ? (
+                     <>
+                       <img 
+                         src={project.image} 
+                         alt={project.title} 
+                         className={`absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 origin-top ${project.imagePosition || 'object-center'}`}
+                       />
+                       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 pointer-events-none`} />
+                     </>
+                   ) : (
+                     <>
+                       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-40 group-hover:opacity-60 transition-opacity duration-700`} />
+                       <div className="absolute inset-0 bg-grid opacity-[0.05]" />
+                       
+                       {/* Project Index Number */}
+                       <div className="absolute bottom-4 left-6">
+                         <span className="text-6xl font-black text-white/5 tracking-tighter select-none">
+                           0{idx + 1}
+                         </span>
+                       </div>
+                     </>
+                   )}
+                   
+                   {/* Shimmer Effect */}
+                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 ease-in-out" />
+                </div>
+
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="space-y-4 mb-8">
+                    <h3 className="font-headline text-2xl font-bold text-white tracking-tight group-hover:text-glow transition-all duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-stone-400 text-sm leading-relaxed font-medium line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                      {project.description}
+                    </p>
                   </div>
-                )}
-                
-                <div className="p-8 pt-6 flex flex-col h-full">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="bg-stone-800 text-stone-400 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider border border-stone-700 uppercase">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="font-headline text-3xl font-bold text-white mb-3 tracking-tight group-hover:text-stone-300 transition-colors">{project.title}</h3>
-                  <p className="text-stone-400 mb-8 max-w-xl text-base leading-relaxed font-medium whitespace-pre-line text-sm md:text-base">
-                    {project.description}
-                  </p>
-                  <div className="flex items-center gap-4 mt-auto">
+
+                  <div className="mt-auto">
                     {project.isPrivate ? (
-                      <div className="flex-1 flex items-center justify-center gap-2 bg-stone-800 text-stone-500 py-4 rounded-2xl font-bold cursor-default border border-stone-700/50">
-                        <Briefcase size={18} />
-                        {project.privateLabel || 'Projeto Empresarial'}
+                      <div className="w-full flex items-center justify-center gap-3 bg-white/5 text-stone-500 py-4 rounded-2xl font-bold border border-white/5 cursor-default text-xs uppercase tracking-widest grayscale hover:grayscale-0 transition-all">
+                        <Lock size={16} />
+                        Projeto Privado
                       </div>
                     ) : (
-                      <>
-                        <a href={project.github || "#"} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-white text-black py-4 rounded-2xl font-bold hover:bg-stone-200 transition-all shadow-lg">
-                          <Eye size={18} />
-                          Ver Projeto
-                        </a>
-                        {project.github && (
-                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-4 bg-stone-800 text-stone-400 rounded-2xl hover:bg-stone-700 transition-colors">
-                            <Code size={20} />
-                          </a>
-                        )}
-                      </>
+                      <a 
+                        href={project.github || "#"} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold hover:bg-stone-100 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.1)] group/btn text-xs uppercase tracking-widest overflow-hidden relative"
+                      >
+                        <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-45 -translate-x-full group-hover/btn:animate-shimmer" />
+                        <Github size={18} className="transition-transform group-hover/btn:scale-110" />
+                        Ver Projeto
+                      </a>
                     )}
                   </div>
                 </div>
