@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
@@ -54,10 +54,12 @@ export const MinimalistHero = ({
   stats,
   techStack,
 }: MinimalistHeroProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
      <div
        className={cn(
-         'relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-black p-8 font-sans md:p-12',
+         'relative flex min-h-[100dvh] w-full flex-col items-center justify-between overflow-x-hidden bg-black p-6 font-sans md:p-12',
          className
        )}
      >
@@ -72,13 +74,13 @@ export const MinimalistHero = ({
          }} 
        />
       {/* Header */}
-      <header className="z-30 flex w-full max-w-7xl items-center justify-between">
+      <header className="z-50 flex w-full max-w-7xl items-center justify-between relative">
         {logoText && (
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl font-bold tracking-wider text-stone-100"
+            className="text-xl md:text-2xl font-bold tracking-wider text-stone-100 relative z-50"
           >
             {logoText}
           </motion.div>
@@ -91,26 +93,53 @@ export const MinimalistHero = ({
           ))}
         </div>
         <motion.button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
+          className="relative z-50 flex flex-col items-center justify-center w-8 h-8 md:hidden"
           aria-label="Open menu"
         >
-          <span className="block h-0.5 w-6 bg-stone-100"></span>
-          <span className="block h-0.5 w-6 bg-stone-100"></span>
-          <span className="block h-0.5 w-5 bg-stone-100"></span>
+          <span className={cn("absolute block h-0.5 w-6 bg-stone-100 transition-all duration-300", isMenuOpen ? "rotate-45" : "-translate-y-2")}></span>
+          <span className={cn("absolute block h-0.5 w-6 bg-stone-100 transition-all duration-300", isMenuOpen ? "opacity-0" : "opacity-100")}></span>
+          <span className={cn("absolute block h-0.5 w-6 bg-stone-100 transition-all duration-300", isMenuOpen ? "-rotate-45" : "translate-y-2")}></span>
         </motion.button>
       </header>
 
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center space-y-8"
+          >
+            {navLinks.map((link, idx) => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-black tracking-widest text-stone-100 uppercase hover:text-stone-300"
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Content Area */}
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
+      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3 mt-12 md:mt-0">
         {/* Left Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left md:pr-12"
+          className="z-20 order-2 md:order-1 text-center md:text-left md:pr-12 pt-8 md:pt-0"
         >
           <p className="mx-auto max-w-md text-base md:text-lg leading-relaxed text-stone-100/70 md:mx-0 mb-8 font-medium">{mainText}</p>
           <motion.a 
@@ -127,7 +156,7 @@ export const MinimalistHero = ({
 
           {/* Compact Stats */}
           {stats && (
-            <div className="mt-16 flex items-center gap-12 border-t border-stone-800/50 pt-10">
+            <div className="mt-12 flex items-center justify-center md:justify-start gap-12 border-t border-stone-800/50 pt-10">
               {stats.map((stat, idx) => (
                 <div key={idx} className="space-y-1">
                   <div className="text-3xl font-black text-stone-100 tracking-tighter">{stat.value}</div>
@@ -139,7 +168,7 @@ export const MinimalistHero = ({
         </motion.div>
 
         {/* Center Vertical Band & Image */}
-        <div className="relative order-1 md:order-2 flex justify-center items-end h-[600px] md:h-[700px] lg:h-[800px] w-full max-w-[420px] mx-auto">
+        <div className="relative order-1 md:order-2 flex justify-center items-end h-[450px] md:h-[700px] lg:h-[800px] w-full max-w-[420px] mx-auto">
           {/* Vertical Band (The "Faixa") */}
           <motion.div
             initial={{ scaleY: 0, opacity: 0 }}
@@ -196,8 +225,8 @@ export const MinimalistHero = ({
         </div>
       </div>
 
-      {/* Tech Marquee & Socials (Absolute Bottom) */}
-      <div className="absolute bottom-16 left-0 right-0 z-30 flex flex-col items-center gap-8">
+      {/* Tech Marquee & Socials (Absolute Bottom on Desktop, Flow on Mobile) */}
+      <div className="relative md:absolute bottom-0 md:bottom-16 left-0 right-0 z-30 flex flex-col items-center gap-8 mt-16 md:mt-0 mb-12 md:mb-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -230,7 +259,7 @@ export const MinimalistHero = ({
       </div>
 
       {/* Footer Elements */}
-      <footer className="z-30 flex w-full max-w-7xl items-center justify-between">
+      <footer className="z-30 hidden md:flex w-full max-w-7xl items-center justify-between">
         <div /> {/* Spacer for left side */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
