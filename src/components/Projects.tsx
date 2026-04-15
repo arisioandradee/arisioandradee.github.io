@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Github, Lock, Code, Terminal, Briefcase, User } from 'lucide-react';
+import { Github, Lock, Code, Terminal, Briefcase, User, Globe } from 'lucide-react';
 
 export default function Projects() {
   const [category, setCategory] = useState<'pessoal' | 'empresarial'>('pessoal');
@@ -44,11 +44,32 @@ export default function Projects() {
       gradient: 'from-stone-600/20 via-stone-800/10 to-transparent'
     },
     {
+      title: 'Site Oficial - Melhor Lead',
+      description: 'Landing page estratégica desenvolvida para apresentar a plataforma Melhor Lead, focada em conversão de leads qualificados e demonstração clara das funcionalidades core da ferramenta.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      image: '/lpmelhorlead.png',
+      gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent'
+    },
+    {
+      title: 'Portal HRFGO',
+      description: 'Plataforma de gestão hospitalar integrada desenvolvida para o Hospital Regional Francisco Galvão de Oliveira. O sistema centraliza o controle de dados operacionais e administrativos, otimizando fluxos de trabalho e garantindo a integridade da informação em uma infraestrutura em constante expansão.',
+      colSpan: 'md:col-span-8',
+      category: 'empresarial',
+      isPrivate: true,
+      image: '/portalhrfgo.png',
+      imagePosition: 'object-top',
+      gradient: 'from-slate-600/20 via-gray-600/10 to-transparent'
+    },
+    {
       title: 'Nutr.IA',
       description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.',
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
       colSpan: 'md:col-span-7',
       category: 'pessoal',
+      image: '/nutria.avif',
+      imagePosition: 'object-top',
       gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
     },
     {
@@ -64,7 +85,7 @@ export default function Projects() {
       title: 'HelpDesk',
       description: 'Aplicação full-stack desenvolvida para gerenciamento de chamados de suporte técnico, com foco na organização e resolução.',
       github: 'https://github.com/arisioandradee/helpdesk-project',
-      colSpan: 'md:col-span-6',
+      colSpan: 'md:col-span-4',
       category: 'pessoal',
       image: '/helpdesks.png',
       gradient: 'from-indigo-600/20 via-blue-600/10 to-transparent'
@@ -73,9 +94,21 @@ export default function Projects() {
       title: 'Sistema de Aprendizagem',
       description: 'Plataforma web interativa desenvolvida para conectar estudantes e professores, permitindo a criação e acesso a cursos práticos.',
       github: 'https://github.com/arisioandradee/sistema-aprendizagem',
-      colSpan: 'md:col-span-6',
+      colSpan: 'md:col-span-4',
       category: 'pessoal',
+      image: '/sistemaAprendizagem.jpg',
+      imagePosition: 'object-top',
       gradient: 'from-amber-600/20 via-yellow-600/10 to-transparent'
+    },
+    {
+      title: 'FinanceApp',
+      description: 'Plataforma web avançada para controle financeiro pessoal. O sistema permite a gestão completa de receitas e despesas, definição de metas de economia e criação de "cofrinhos" virtuais.',
+      link: 'https://arisioandradefinance.vercel.app/',
+      colSpan: 'md:col-span-4',
+      category: 'pessoal',
+      image: '/financeApp.png',
+      imagePosition: 'object-top',
+      gradient: 'from-emerald-600/20 via-green-600/10 to-transparent'
     },
   ];
 
@@ -177,7 +210,7 @@ export default function Projects() {
                     <h3 className="font-headline text-2xl font-bold text-white tracking-tight group-hover:text-glow transition-all duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-stone-400 text-sm leading-relaxed font-medium line-clamp-3 group-hover:line-clamp-none transition-all duration-500">
+                    <p className="text-stone-400 text-sm leading-relaxed font-medium transition-all duration-500">
                       {project.description}
                     </p>
                   </div>
@@ -190,13 +223,17 @@ export default function Projects() {
                       </div>
                     ) : (
                       <a 
-                        href={project.github || "#"} 
+                        href={project.link || project.github || "#"} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold hover:bg-stone-100 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.1)] group/btn text-xs uppercase tracking-widest overflow-hidden relative"
                       >
                         <div className="absolute inset-0 w-1/4 h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-45 -translate-x-full group-hover/btn:animate-shimmer" />
-                        <Github size={18} className="transition-transform group-hover/btn:scale-110" />
+                        {project.link ? (
+                          <Globe size={18} className="transition-transform group-hover/btn:scale-110" />
+                        ) : (
+                          <Github size={18} className="transition-transform group-hover/btn:scale-110" />
+                        )}
                         Ver Projeto
                       </a>
                     )}

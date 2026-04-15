@@ -6,7 +6,8 @@ import {
   Calendar,
   MapPin,
   Clock,
-  ChevronDown
+  ChevronDown,
+  Download
 } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
@@ -191,6 +192,27 @@ export default function About() {
         </div>
 
 
+        <div className="mt-32 p-px bg-stone-200"></div>
+
+        <div className="mt-20 flex flex-col items-center text-center">
+          <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-stone-900 tracking-tighter">
+            Quer conhecer mais da minha <br />
+            <span className="text-stone-500 italic">Trajetória</span>?
+          </h2>
+          <p className="text-stone-500 mb-12 max-w-md font-medium text-lg">
+            Você pode baixar a versão completa do meu currículo para conferir todos os detalhes técnicos e acadêmicos.
+          </p>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/Profile.pdf"
+            download
+            className="group flex items-center gap-3 bg-stone-900 px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-white text-lg"
+          >
+            <Download size={20} />
+            Baixar Currículo
+          </motion.a>
+        </div>
       </div>
     </section>
   );

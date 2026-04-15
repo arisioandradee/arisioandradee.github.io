@@ -35,6 +35,7 @@ export default function Hero() {
   const stats = [
     { value: '10+', label: 'PROJETOS' },
     { value: '05+', label: 'ANOS DE ESTUDO' },
+    { value: '03+', label: 'AUTOMAÇÕES REAIS' },
   ];
 
   return (
@@ -54,6 +55,7 @@ export default function Hero() {
         locationText=""
         stats={stats}
         techStack={techStack}
+        cvLink="/Profile.pdf"
       />
     </section>
   );
