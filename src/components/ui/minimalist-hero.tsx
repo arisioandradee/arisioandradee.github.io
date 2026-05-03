@@ -59,12 +59,12 @@ export const MinimalistHero = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-     <div
-       className={cn(
-         'relative flex min-h-[100dvh] w-full flex-col items-center justify-between overflow-x-hidden bg-black p-6 font-sans md:p-12',
-         className
-       )}
-     >
+    <div
+      className={cn(
+        'relative flex min-h-[100dvh] w-full flex-col items-center justify-between overflow-hidden bg-black p-6 font-sans md:p-12',
+        className
+      )}
+    >
        {/* Background Grid */}
        <div 
          className="absolute inset-0 z-0 opacity-[0.15]" 
