@@ -96,10 +96,10 @@ export default function TechStack() {
               className={`${group.colSpan} group relative overflow-hidden rounded-[2.5rem] bg-stone-900/40 backdrop-blur-xl border border-white/5 hover:border-white/10 transition-all duration-500 p-8 flex flex-col justify-between min-h-[260px]`}
             >
               {/* Gradient Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${group.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${group.gradient} opacity-20 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700`} />
 
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white mb-6 md:group-hover:scale-110 transition-transform duration-500">
                   <group.icon size={24} />
                 </div>
                 <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{group.title}</h3>
@@ -123,9 +123,9 @@ export default function TechStack() {
                             : `https://cdn.simpleicons.org/${tech.icon}/${tech.color}`
                       }
                       alt={tech.name}
-                      className="w-4 h-4 grayscale group-hover:grayscale-0 transition-all"
+                      className="w-4 h-4 grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all"
                     />
-                    <span className="text-[10px] font-bold text-stone-400 group-hover:text-white uppercase tracking-widest">
+                    <span className="text-[10px] font-bold text-white md:text-stone-400 md:group-hover:text-white uppercase tracking-widest">
                       {tech.name}
                     </span>
                   </div>

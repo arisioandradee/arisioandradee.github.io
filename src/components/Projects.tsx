@@ -153,36 +153,36 @@ export default function Projects() {
             Estou sempre aberto a novos desafios e oportunidades de colaboração técnica.
           </p>
 
-          <div className="pt-10">
-            <div className="inline-flex p-1.5 bg-stone-900 rounded-[2rem] border border-stone-800 shadow-sm">
+          <div className="pt-10 flex justify-center">
+            <div className="inline-flex flex-wrap justify-center gap-1.5 p-1.5 bg-stone-900 rounded-[2.5rem] border border-stone-800 shadow-sm max-w-full">
               <button
                 onClick={() => setCategory('pessoal')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-[1.5rem] text-sm font-bold transition-all duration-300 ${category === 'pessoal'
+                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'pessoal'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}
               >
-                <User size={18} />
+                <User size={16} className="md:w-[18px] md:h-[18px]" />
                 Pessoal
               </button>
               <button
                 onClick={() => setCategory('empresarial')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-[1.5rem] text-sm font-bold transition-all duration-300 ${category === 'empresarial'
+                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'empresarial'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}
               >
-                <Briefcase size={18} />
+                <Briefcase size={16} className="md:w-[18px] md:h-[18px]" />
                 Empresarial
               </button>
               <button
                 onClick={() => setCategory('landing-pages')}
-                className={`flex items-center gap-2 px-6 py-3 rounded-[1.5rem] text-sm font-bold transition-all duration-300 ${category === 'landing-pages'
+                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'landing-pages'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}
               >
-                <Globe size={18} />
+                <Layout size={16} className="md:w-[18px] md:h-[18px]" />
                 Landing Pages
               </button>
             </div>
