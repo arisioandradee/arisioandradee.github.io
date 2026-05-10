@@ -121,12 +121,12 @@ export default function Projects() {
       gradient: 'from-amber-600/20 via-yellow-600/10 to-transparent'
     },
     {
-      title: 'FinanceApp',
+      title: 'MeuSaldo',
       description: 'Plataforma web avançada para controle financeiro pessoal. O sistema permite a gestão completa de receitas e despesas, definição de metas de economia e criação de "cofrinhos" virtuais.',
-      link: 'https://arisioandradefinance.vercel.app/',
+      link: 'https://meusaldo.arisioandrade.com.br',
       colSpan: 'md:col-span-4',
       category: 'pessoal',
-      image: '/financeApp.png',
+      image: '/MeuSaldo.png',
       imagePosition: 'object-top',
       gradient: 'from-emerald-600/20 via-green-600/10 to-transparent'
     },
