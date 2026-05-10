@@ -63,7 +63,7 @@ export default function Projects() {
       gradient: 'from-stone-600/20 via-stone-900/10 to-transparent'
     },
     {
-      title: 'Portfolio Arisio Andrade',
+      title: 'Arisio Andrade',
       description: 'Landing page de alto nível desenvolvida para apresentar minha trajetória e portfólio, com foco em estética premium e performance.',
       colSpan: 'md:col-span-7',
       category: 'landing-pages',
@@ -92,7 +92,7 @@ export default function Projects() {
       imagePosition: 'object-top',
       gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
     },
-    {
+    /* {
       title: 'Catálogo de Carros',
       description: 'Aplicação web desenvolvida para uma loja de veículos, simulando uma solução moderna de presença digital e gestão de estoque.',
       colSpan: 'md:col-span-5',
@@ -100,12 +100,12 @@ export default function Projects() {
       isPrivate: true,
       image: '/catalogoCarros.png',
       gradient: 'from-cyan-600/20 via-blue-600/10 to-transparent'
-    },
+    }, */
     {
       title: 'HelpDesk',
       description: 'Aplicação full-stack desenvolvida para gerenciamento de chamados de suporte técnico, com foco na organização e resolução.',
       github: 'https://github.com/arisioandradee/helpdesk-project',
-      colSpan: 'md:col-span-4',
+      colSpan: 'md:col-span-5',
       category: 'pessoal',
       image: '/helpdesks.png',
       gradient: 'from-indigo-600/20 via-blue-600/10 to-transparent'
@@ -124,7 +124,7 @@ export default function Projects() {
       title: 'MeuSaldo',
       description: 'Plataforma web avançada para controle financeiro pessoal. O sistema permite a gestão completa de receitas e despesas, definição de metas de economia e criação de "cofrinhos" virtuais.',
       link: 'https://meusaldo.arisioandrade.com.br',
-      colSpan: 'md:col-span-4',
+      colSpan: 'md:col-span-8',
       category: 'pessoal',
       image: '/MeuSaldo.png',
       imagePosition: 'object-top',
