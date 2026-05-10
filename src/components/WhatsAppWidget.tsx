@@ -58,7 +58,7 @@ export default function WhatsAppWidget() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:shadow-[0_15px_30px_rgba(37,211,102,0.4)] hover:-translate-y-1"
               >
-                <MessageCircle size={18} />
+                <img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp" className="w-5 h-5" />
                 Enviar Mensagem
               </a>
             </div>
@@ -90,7 +90,7 @@ export default function WhatsAppWidget() {
               animate={{ opacity: 1, rotate: 0 }}
               exit={{ opacity: 0, rotate: -90 }}
             >
-              <MessageCircle size={28} />
+              <img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp" className="w-8 h-8" />
             </motion.div>
           )}
         </AnimatePresence>

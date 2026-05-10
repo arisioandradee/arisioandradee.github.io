@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Github, Lock, Code, Terminal, Briefcase, User, Globe } from 'lucide-react';
+import { Github, Lock, Code, Terminal, Briefcase, User, Globe, Layout } from 'lucide-react';
 
 export default function Projects() {
   const [category, setCategory] = useState<'pessoal' | 'empresarial' | 'landing-pages'>('pessoal');

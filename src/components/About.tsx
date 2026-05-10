@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useSpring, useInView } from 'motion/react';
 import {
   Briefcase,
   GraduationCap,
@@ -91,9 +91,15 @@ export default function About() {
   function TimelineItem({ item, isLeft }: { item: any, isLeft: boolean }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const isEdu = item.type === 'edu';
+    const itemRef = useRef(null);
+    const isInView = useInView(itemRef, { 
+      margin: "-70% 0px -30% 0px",
+      once: true 
+    });
 
     return (
       <motion.div
+        ref={itemRef}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -104,7 +110,7 @@ export default function About() {
         <div className="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 w-0.5 h-[calc(100%+80px)] bg-stone-100 group-last:hidden" />
 
         {/* Marker */}
-        <div className={`absolute left-[5px] md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-2xl flex items-center justify-center border-2 border-white shadow-xl z-20 transition-all duration-500 hover:scale-125 ${isEdu ? 'bg-stone-50 text-stone-500' : 'bg-stone-900 text-white'}`}>
+        <div className={`absolute left-[5px] md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-2xl flex items-center justify-center border-2 shadow-xl z-20 transition-all duration-700 hover:scale-125 ${isInView ? 'bg-stone-900 text-white border-stone-800' : 'bg-white text-stone-500 border-stone-100'}`}>
           {isEdu ? <GraduationCap size={20} /> : <Briefcase size={20} />}
         </div>
 
