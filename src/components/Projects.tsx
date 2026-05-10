@@ -83,12 +83,12 @@ export default function Projects() {
       gradient: 'from-slate-600/20 via-gray-600/10 to-transparent'
     },
     {
-      title: 'Nutr.IA',
+      title: 'NutrIA',
       description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.',
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
       colSpan: 'md:col-span-7',
       category: 'pessoal',
-      image: '/nutria.avif',
+      image: '/nutria.png',
       imagePosition: 'object-top',
       gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
     },
