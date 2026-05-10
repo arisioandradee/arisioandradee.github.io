@@ -4,15 +4,17 @@ import { cn } from '@/src/lib/utils';
 export default function Navbar() {
   const navLinks = [
     { name: 'Início', href: '#home' },
-    { name: 'Sobre mim', href: '#about' },
+    { name: 'Jornada', href: '#about' },
+    { name: 'Stack', href: '#tech' },
     { name: 'Projetos', href: '#projects' },
   ];
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-panel rounded-full border border-outline-variant/20 px-2 py-2 flex items-center gap-2 md:gap-6 shadow-2xl backdrop-blur-xl">
-      <div className="flex items-center px-4">
-        <div className="text-xl font-black text-primary tracking-tighter font-headline">
-          Vini.
+      <div className="flex items-center px-4 gap-3">
+        <img src="/AA_logo.png" alt="Logo" className="w-6 h-6 object-contain" />
+        <div className="text-lg font-black text-primary tracking-tighter font-headline uppercase whitespace-nowrap">
+          Arisio Andrade
         </div>
       </div>
       

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
+import {
   Briefcase,
   GraduationCap,
   Calendar,
@@ -93,19 +93,19 @@ export default function About() {
     const isEdu = item.type === 'edu';
 
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`relative flex items-center justify-between mb-20 px-4 sm:px-0 w-full ${isLeft ? 'md:flex-row-reverse' : 'md:flex-row'}`}
       >
-        {/* Timeline Line (Center) */}
-        <div className="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 w-px h-[calc(100%+80px)] bg-stone-200 group-last:hidden" />
-        
+        {/* Timeline Line Segment (Static) */}
+        <div className="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 w-0.5 h-[calc(100%+80px)] bg-stone-100 group-last:hidden" />
+
         {/* Marker */}
         <div className={`absolute left-[5px] md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-2xl flex items-center justify-center border-2 border-white shadow-xl z-20 transition-all duration-500 hover:scale-125 ${isEdu ? 'bg-stone-50 text-stone-500' : 'bg-stone-900 text-white'}`}>
-           {isEdu ? <GraduationCap size={20} /> : <Briefcase size={20} />}
+          {isEdu ? <GraduationCap size={20} /> : <Briefcase size={20} />}
         </div>
 
         {/* Content Card (Half width on desktop) */}
@@ -116,7 +116,7 @@ export default function About() {
               <div className={`shrink-0 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${isEdu ? 'bg-white text-stone-500 border-stone-200 shadow-sm' : 'bg-stone-900 text-white border-stone-800 shadow-lg'}`}>
                 {item.period}
               </div>
-              
+
               <div className="space-y-1">
                 <h3 className="text-2xl font-headline font-black text-stone-900 tracking-tight">
                   {item.title}
@@ -128,21 +128,21 @@ export default function About() {
             </div>
 
             <div className={`flex flex-wrap gap-4 text-xs font-bold text-stone-400 ${isLeft ? 'md:justify-end' : 'md:justify-start'} items-center w-full`}>
-               <span className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-stone-100/80 shadow-sm">
-                 <MapPin size={14} className="text-stone-300" /> {item.location}
-               </span>
-               <button 
-                 onClick={() => setIsExpanded(!isExpanded)}
-                 className={`flex items-center gap-2 px-4 py-1.5 rounded-lg border transition-all duration-300 text-[10px] font-black uppercase tracking-widest ${isExpanded ? 'bg-stone-900 text-white border-stone-800' : 'bg-white text-stone-900 border-stone-200 hover:bg-stone-100 active:scale-95 shadow-sm'}`}
-               >
-                 <ChevronDown size={14} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
-                 {isExpanded ? 'Fechar atividades' : 'Ver atividades'}
-               </button>
+              <span className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-stone-100/80 shadow-sm">
+                <MapPin size={14} className="text-stone-300" /> {item.location}
+              </span>
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg border transition-all duration-300 text-[10px] font-black uppercase tracking-widest ${isExpanded ? 'bg-stone-900 text-white border-stone-800' : 'bg-white text-stone-900 border-stone-200 hover:bg-stone-100 active:scale-95 shadow-sm'}`}
+              >
+                <ChevronDown size={14} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+                {isExpanded ? 'Fechar atividades' : 'Ver atividades'}
+              </button>
             </div>
 
             <AnimatePresence>
               {isExpanded && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
@@ -166,6 +166,18 @@ export default function About() {
     );
   }
 
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 70%", "end 70%"]
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <section id="about" className="py-32 bg-surface-off-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-8">
@@ -180,11 +192,17 @@ export default function About() {
         </header>
 
         <div className="max-w-6xl mx-auto relative px-0 md:px-10">
-          <div className="relative">
+          <div ref={containerRef} className="relative">
+            {/* Animated Progress Line */}
+            <motion.div
+              style={{ scaleY, originY: 0 }}
+              className="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 w-0.5 h-full bg-stone-900 z-10"
+            />
+
             {journeyItems.map((item, idx) => (
-              <TimelineItem 
-                key={`${item.title}-${idx}`} 
-                item={item} 
+              <TimelineItem
+                key={`${item.title}-${idx}`}
+                item={item}
                 isLeft={idx % 2 === 0}
               />
             ))}

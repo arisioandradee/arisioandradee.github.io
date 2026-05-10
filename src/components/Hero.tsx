@@ -5,7 +5,8 @@ import { MinimalistHero } from './ui/minimalist-hero';
 export default function Hero() {
   const navLinks = [
     { label: 'INÍCIO', href: '#home' },
-    { label: 'SOBRE MIM', href: '#about' },
+    { label: 'JORNADA', href: '#about' },
+    { label: 'STACK', href: '#tech' },
     { label: 'PROJETOS', href: '#projects' },
     { label: 'CONTATO', href: '#contact' },
   ];

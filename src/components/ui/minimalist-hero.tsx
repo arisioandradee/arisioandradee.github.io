@@ -82,8 +82,9 @@ export const MinimalistHero = ({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl font-bold tracking-wider text-stone-100 relative z-50"
+            className="text-xl md:text-2xl font-bold tracking-wider text-stone-100 relative z-50 flex items-center gap-3"
           >
+            <img src="/AA_logo.png" alt="Logo" className="w-8 h-8 object-contain" />
             {logoText}
           </motion.div>
         )}
