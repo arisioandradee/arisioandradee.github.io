@@ -130,6 +130,26 @@ export default function Projects() {
       imagePosition: 'object-top',
       gradient: 'from-emerald-600/20 via-green-600/10 to-transparent'
     },
+    {
+      title: 'Palpiteiros',
+      description: 'Plataforma de diversão relacionando a copa do mundo, trazendo grupos, atualizações diárias, palpites de resultados, ranking, campeonatos, e ver palpite de outros participantes.',
+      link: 'https://palpiteiros.arisioandrade.com.br/dashboard',
+      colSpan: 'md:col-span-7',
+      category: 'pessoal',
+      image: '/palpiteiros.png',
+      imagePosition: 'object-top',
+      gradient: 'from-yellow-600/20 via-green-600/10 to-transparent'
+    },
+    {
+      title: 'Análise de Dados - Dengue',
+      description: 'Dashboard com dados abertos da dengue feitos para uma disciplina da faculdade, dados tratados e configurados.',
+      link: 'https://ace5.vercel.app/',
+      colSpan: 'md:col-span-5',
+      category: 'pessoal',
+      image: '/dengue.png',
+      imagePosition: 'object-top',
+      gradient: 'from-teal-600/20 via-cyan-600/10 to-transparent'
+    },
   ];
 
   const filteredProjects = projects.filter(p => p.category === category);
