@@ -21,13 +21,14 @@ interface MinimalistHeroProps {
   stats?: { value: string; label: string }[];
   techStack?: { name: string; icon: string; color: string }[];
   cvLink?: string;
+  videoSrc?: string;
 }
 
 // Helper component for navigation links
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-sm font-medium tracking-widest text-stone-100/60 transition-colors hover:text-white"
+    className="text-sm font-medium tracking-widest text-stone-300 transition-colors hover:text-white"
   >
     {children}
   </a>
@@ -55,6 +56,7 @@ export const MinimalistHero = ({
   stats,
   techStack,
   cvLink,
+  videoSrc,
 }: MinimalistHeroProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -65,30 +67,49 @@ export const MinimalistHero = ({
         className
       )}
     >
-       {/* Background Grid */}
-       <div 
-         className="absolute inset-0 z-0 opacity-[0.15]" 
-         style={{ 
-           backgroundImage: `linear-gradient(#262626 1px, transparent 1px), linear-gradient(90deg, #262626 1px, transparent 1px)`,
-           backgroundSize: 'clamp(30px, 5vw, 60px) clamp(30px, 5vw, 60px)',
-           maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
-           WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
-         }} 
-       />
+       {/* Background Grid or Video */}
+       {videoSrc ? (
+         <>
+           <video
+             autoPlay
+             loop
+             muted
+             playsInline
+             className="absolute top-0 left-0 right-0 z-0 h-[50vh] md:inset-0 md:h-full w-full object-cover object-[25%_10%] md:object-[center_10%]"
+           >
+             <source src={videoSrc} type="video/mp4" />
+           </video>
+           <div className="absolute top-0 left-0 right-0 z-0 h-[50vh] bg-gradient-to-b from-black/60 via-transparent to-black md:hidden" />
+           <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/20 via-black/60 to-black/90" />
+         </>
+       ) : (
+         <div 
+           className="absolute inset-0 z-0 opacity-[0.15]" 
+           style={{ 
+             backgroundImage: `linear-gradient(#262626 1px, transparent 1px), linear-gradient(90deg, #262626 1px, transparent 1px)`,
+             backgroundSize: 'clamp(30px, 5vw, 60px) clamp(30px, 5vw, 60px)',
+             maskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)',
+             WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 80%)'
+           }} 
+         />
+       )}
       {/* Header */}
-      <header className="z-50 flex w-full max-w-7xl items-center justify-between relative">
+      <header className={cn("z-50 flex w-full max-w-7xl items-center relative justify-between", videoSrc && "md:justify-center")}>
         {logoText && (
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl font-bold tracking-wider text-stone-100 relative z-50 flex items-center gap-3"
+            className={cn(
+              "text-lg md:text-2xl font-bold tracking-wider text-stone-100 relative z-50 flex items-center gap-3",
+              videoSrc && "md:hidden"
+            )}
           >
-            <img src="/AA_logo.png" alt="Logo" className="w-8 h-8 object-contain" />
-            {logoText}
+            <img src="/AA_logo.png" alt="Logo" className="w-8 h-8 object-contain brightness-200" />
+            <span>{logoText}</span>
           </motion.div>
         )}
-        <div className={cn("hidden items-center space-x-8 md:flex", !logoText && "flex-grow justify-end")}>
+        <div className={cn("hidden items-center space-x-8 md:flex", (!videoSrc || !logoText) && "flex-grow justify-end")}>
           {navLinks.map((link) => (
             <NavLink key={link.label} href={link.href}>
               {link.label}
@@ -136,21 +157,50 @@ export const MinimalistHero = ({
       </AnimatePresence>
 
       {/* Main Content Area */}
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3 mt-12 md:mt-0">
+      <div className={cn(
+        "relative w-full max-w-7xl flex-grow items-center",
+        videoSrc ? "flex flex-col md:flex-row justify-end mt-[40vh] md:mt-0" : "grid grid-cols-1 md:grid-cols-3 mt-12 md:mt-0"
+      )}>
         {/* Left Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left md:pr-12 pt-8 md:pt-0"
+          className={cn(
+            "z-20 w-full",
+            videoSrc 
+              ? "flex flex-col items-center text-center md:w-1/2 lg:w-5/12 md:p-10 space-y-5 md:space-y-8 md:bg-black/30 md:backdrop-blur-xl md:rounded-3xl md:border md:border-white/10" 
+              : "order-2 md:order-1 text-center md:text-left md:pr-12 pt-6 md:pt-0"
+          )}
         >
-          <p className="mx-auto max-w-md text-base md:text-lg leading-relaxed text-stone-100/70 md:mx-0 mb-8 font-medium">{mainText}</p>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+          {videoSrc && (
+            <div className="pointer-events-none w-full flex flex-col items-center gap-3 mb-2">
+              <img src="/AA_logo.png" alt="Logo" className="w-14 h-14 object-contain brightness-200" />
+              <div className="w-12 h-[1px] bg-white/20 my-1" />
+              <h2 className="text-3xl md:text-4xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-stone-100 to-stone-400 tracking-tighter">
+                ARISIO ANDRADE
+              </h2>
+            </div>
+          )}
+
+          {!videoSrc && overlayText && (
+            <div className="pointer-events-none text-right w-full">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white/90 leading-[0.85] tracking-tighter">
+                {overlayText.part1}
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-stone-100 to-stone-500">{overlayText.part2}</span>
+              </h1>
+            </div>
+          )}
+
+          <p className={cn("max-w-md text-base md:text-lg leading-relaxed font-medium whitespace-pre-line", videoSrc ? "text-stone-300" : "mx-auto text-stone-100/70 md:mx-0 mb-8")}>{mainText}</p>
+          
+          <div className={cn("flex flex-row w-full justify-center gap-2 md:gap-4", videoSrc ? "justify-center" : "justify-center md:justify-start")}>
             <motion.a 
               href={readMoreLink} 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-white text-black text-xs font-black uppercase tracking-[0.2em] rounded-full hover:bg-stone-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)] inline-flex items-center gap-2"
+              className="px-4 md:px-8 py-3 bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.2em] rounded-full hover:bg-stone-200 transition-colors shadow-[0_10px_30px_rgba(255,255,255,0.1)] inline-flex items-center justify-center gap-2 flex-1 md:flex-none whitespace-nowrap"
             >
               Saiba Mais
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +214,7 @@ export const MinimalistHero = ({
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-white/5 text-white text-xs font-black uppercase tracking-[0.2em] rounded-full border border-white/10 hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+                className="px-4 md:px-8 py-3 bg-white/5 text-white text-[10px] md:text-xs font-black uppercase tracking-[0.2em] rounded-full border border-white/10 hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 flex-1 md:flex-none whitespace-nowrap"
               >
                 <Download size={14} />
                 Baixar CV
@@ -174,19 +224,29 @@ export const MinimalistHero = ({
 
           {/* Compact Stats */}
           {stats && (
-            <div className="mt-12 flex items-center justify-center md:justify-start gap-12 border-t border-stone-800/50 pt-10">
+            <div className={cn("flex flex-row items-start justify-between w-full gap-2 md:gap-6 lg:gap-8 border-t border-stone-800/50 pt-8", videoSrc ? "" : "mt-12 md:justify-start pt-10")}>
               {stats.map((stat, idx) => (
-                <div key={idx} className="space-y-1">
-                  <div className="text-3xl font-black text-stone-100 tracking-tighter">{stat.value}</div>
-                  <p className="text-[10px] font-bold text-stone-500 uppercase tracking-widest">{stat.label}</p>
+                <div key={idx} className={cn("flex-1 flex flex-col space-y-1", videoSrc ? "items-center text-center" : "items-center md:items-start text-center md:text-left")}>
+                  <div className="text-2xl md:text-3xl font-black text-stone-100 tracking-tighter">{stat.value}</div>
+                  <p className="text-[8px] md:text-[10px] font-bold text-stone-500 uppercase tracking-widest leading-tight">{stat.label}</p>
                 </div>
+              ))}
+            </div>
+          )}
+
+          {/* Socials inside Card */}
+          {videoSrc && socialLinks && (
+            <div className="flex items-center justify-center space-x-6 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/5 mt-4">
+              {socialLinks.map((link, index) => (
+                <SocialIcon key={index} href={link.href} icon={link.icon} />
               ))}
             </div>
           )}
         </motion.div>
 
         {/* Center Vertical Band & Image */}
-        <div className="relative order-1 md:order-2 flex justify-center items-end h-[450px] md:h-[700px] lg:h-[800px] w-full max-w-[420px] mx-auto">
+        {!videoSrc && (
+          <div className="relative order-1 md:order-2 flex justify-center items-end h-[450px] md:h-[700px] lg:h-[800px] w-full max-w-[420px] mx-auto">
           {/* Vertical Band (The "Faixa") */}
           <motion.div
             initial={{ scaleY: 0, opacity: 0 }}
@@ -212,9 +272,11 @@ export const MinimalistHero = ({
           </div>
 
         </div>
+        )}
 
         {/* Right Text Content - Aligned exactly right of the photo background */}
-        <div className="z-20 order-3 hidden md:flex flex-col justify-center items-start pl-8 lg:pl-16 h-full gap-12">
+        {!videoSrc && (
+          <div className="z-20 order-3 hidden md:flex flex-col justify-center items-start pl-8 lg:pl-16 h-full gap-12">
           {overlayText && (
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -241,23 +303,26 @@ export const MinimalistHero = ({
             </p>
           </motion.div>
         </div>
+        )}
       </div>
 
       {/* Tech Marquee & Socials (Absolute Bottom on Desktop, Flow on Mobile) */}
-      <div className="relative md:absolute bottom-0 md:bottom-16 left-0 right-0 z-30 flex flex-col items-center gap-8 mt-16 md:mt-0 mb-12 md:mb-0">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          className="flex items-center space-x-6 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/5"
-        >
-          {socialLinks.map((link, index) => (
-            <SocialIcon key={index} href={link.href} icon={link.icon} />
-          ))}
-        </motion.div>
+      <div className={cn("relative md:absolute bottom-0 md:bottom-16 left-0 right-0 z-30 flex-col items-center gap-8 md:mt-0 md:mb-0", videoSrc ? "hidden md:flex" : "flex mt-16 mb-12")}>
+        {!videoSrc && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+            className="flex items-center space-x-6 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-2xl border border-white/5"
+          >
+            {socialLinks.map((link, index) => (
+              <SocialIcon key={index} href={link.href} icon={link.icon} />
+            ))}
+          </motion.div>
+        )}
 
         {techStack && (
-          <div className="w-full pointer-events-none opacity-40 hover:opacity-100 transition-opacity">
+          <div className="w-full pointer-events-none opacity-40 hover:opacity-100 transition-opacity hidden md:block">
             <div className="relative overflow-hidden group">
               <motion.div 
                 className="flex gap-16 w-max py-2"

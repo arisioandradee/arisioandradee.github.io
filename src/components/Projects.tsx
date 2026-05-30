@@ -174,10 +174,10 @@ export default function Projects() {
           </p>
 
           <div className="pt-10 flex justify-center">
-            <div className="inline-flex flex-wrap justify-center gap-1.5 p-1.5 bg-stone-900 rounded-[2.5rem] border border-stone-800 shadow-sm max-w-full">
+            <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-1.5 p-2 md:p-1.5 bg-stone-900 rounded-[2rem] md:rounded-[2.5rem] border border-stone-800 shadow-sm w-full max-w-[240px] md:max-w-none mx-auto">
               <button
                 onClick={() => setCategory('pessoal')}
-                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'pessoal'
+                className={`flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-3 rounded-[1.5rem] text-sm md:text-sm font-bold transition-all duration-300 w-full md:w-auto ${category === 'pessoal'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}
@@ -187,7 +187,7 @@ export default function Projects() {
               </button>
               <button
                 onClick={() => setCategory('empresarial')}
-                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'empresarial'
+                className={`flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-3 rounded-[1.5rem] text-sm md:text-sm font-bold transition-all duration-300 w-full md:w-auto ${category === 'empresarial'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}
@@ -197,7 +197,7 @@ export default function Projects() {
               </button>
               <button
                 onClick={() => setCategory('landing-pages')}
-                className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-[1.5rem] md:rounded-[1.5rem] text-xs md:text-sm font-bold transition-all duration-300 ${category === 'landing-pages'
+                className={`flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-3 rounded-[1.5rem] text-sm md:text-sm font-bold transition-all duration-300 w-full md:w-auto ${category === 'landing-pages'
                   ? 'bg-white text-black shadow-xl scale-105'
                   : 'text-stone-500 hover:text-stone-300'
                   }`}

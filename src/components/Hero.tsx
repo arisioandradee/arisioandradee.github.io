@@ -34,9 +34,9 @@ export default function Hero() {
   ];
 
   const stats = [
-    { value: '10+', label: 'PROJETOS' },
-    { value: '05+', label: 'ANOS DE ESTUDO' },
+    { value: '15+', label: 'PROJETOS' },
     { value: '03+', label: 'AUTOMAÇÕES REAIS' },
+    { value: '01', label: 'PRODUTO COMERCIALIZADO' },
   ];
 
   return (
@@ -44,9 +44,10 @@ export default function Hero() {
       <MinimalistHero
         logoText="ARISIO ANDRADE"
         navLinks={navLinks}
-        mainText="Desenvolvedor Full Stack & Especialista em Automação de Dados. Transformando complexidade em sistemas eficientes e escaláveis."
+        mainText={"Desenvolvedor Full Stack\n\nTransformando processos complexos em soluções inteligentes através de software, automação e dados."}
         readMoreLink="#about"
         imageSrc="/fotoHero.png"
+        videoSrc="/videoHero.mp4"
         imageAlt="Arisio Andrade"
         overlayText={{
           part1: 'FULL',
