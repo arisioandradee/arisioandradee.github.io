@@ -12,6 +12,8 @@ import {
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 export default function About() {
+  const [showAllJourney, setShowAllJourney] = useState(false);
+
   const techStack = [
     { name: 'Python', icon: "python", color: "3776ab" },
     { name: 'PostgreSQL', icon: "postgresql", color: "4169e1" },
@@ -34,6 +36,15 @@ export default function About() {
   ];
 
   const journeyItems = [
+    {
+      type: 'exp',
+      title: 'Estagiário Full Stack',
+      subtitle: 'JustHelp',
+      period: 'JUN DE 2026 - PRESENTE',
+      location: 'Remota',
+      duration: '1 mês',
+      description: 'Atuo como Estagiário Full Stack na JustHelp, desenvolvendo soluções completas para clientes: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também sou responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
+    },
     {
       type: 'exp',
       title: 'Estagiário Full Stack',
@@ -205,7 +216,7 @@ export default function About() {
               className="absolute left-[24px] md:left-1/2 md:-translate-x-1/2 w-0.5 h-full bg-stone-900 z-10"
             />
 
-            {journeyItems.map((item, idx) => (
+            {(showAllJourney ? journeyItems : journeyItems.slice(0, 3)).map((item, idx) => (
               <TimelineItem
                 key={`${item.title}-${idx}`}
                 item={item}
@@ -213,6 +224,20 @@ export default function About() {
               />
             ))}
           </div>
+
+          {!showAllJourney && journeyItems.length > 3 && (
+            <div className="flex justify-center -mt-8 relative z-20">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowAllJourney(true)}
+                className="group flex items-center gap-3 bg-white text-stone-900 px-8 py-4 rounded-[2rem] font-black text-xs uppercase tracking-widest border border-stone-200 shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:bg-stone-900 hover:text-white transition-all duration-300"
+              >
+                Ver trajetória completa
+                <ChevronDown size={16} className="transition-transform duration-300 group-hover:translate-y-0.5" />
+              </motion.button>
+            </div>
+          )}
         </div>
 
 

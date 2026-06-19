@@ -71,7 +71,7 @@ export default function WhatsAppWidget() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] transition-all relative"
+        className="w-16 h-16 rounded-full bg-stone-800 border border-white/10 flex items-center justify-center text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.7)] hover:bg-stone-700 transition-all relative"
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -94,13 +94,6 @@ export default function WhatsAppWidget() {
             </motion.div>
           )}
         </AnimatePresence>
-        
-        {/* Notification Dot */}
-        {!isOpen && (
-          <div className="absolute top-0 right-0 w-5 h-5 bg-red-500 rounded-full border-4 border-black flex items-center justify-center">
-            <div className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
-          </div>
-        )}
       </motion.button>
     </div>
   );

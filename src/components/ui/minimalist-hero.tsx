@@ -80,7 +80,9 @@ export const MinimalistHero = ({
              <source src={videoSrc} type="video/mp4" />
            </video>
            <div className="absolute top-0 left-0 right-0 z-0 h-[50vh] bg-gradient-to-b from-black/60 via-transparent to-black md:hidden" />
-           <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/20 via-black/60 to-black/90" />
+           <div className="absolute bottom-0 right-0 z-0 h-2/3 w-2/3 md:hidden" style={{ background: 'radial-gradient(ellipse at bottom right, black 0%, rgba(0,0,0,0.6) 35%, transparent 70%)' }} />
+           <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/20 via-black/70 to-black" />
+           <div className="hidden md:block absolute bottom-0 right-0 z-0 h-3/4 w-3/4" style={{ background: 'radial-gradient(ellipse at bottom right, black 0%, rgba(0,0,0,0.7) 30%, transparent 65%)' }} />
          </>
        ) : (
          <div 
@@ -321,24 +323,6 @@ export const MinimalistHero = ({
           </motion.div>
         )}
 
-        {techStack && (
-          <div className="w-full pointer-events-none opacity-40 hover:opacity-100 transition-opacity hidden md:block">
-            <div className="relative overflow-hidden group">
-              <motion.div 
-                className="flex gap-16 w-max py-2"
-                animate={{ x: ["0%", "-33.33%"] }}
-                transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 50, ease: "linear" } }}
-              >
-                {[...techStack, ...techStack, ...techStack].map((tech, idx) => (
-                  <div key={`${tech.name}-${idx}`} className="flex items-center gap-2 grayscale brightness-200">
-                    <img src={`https://cdn.simpleicons.org/${tech.icon}/${tech.color}`} alt={tech.name} className="w-4 h-4" />
-                    <span className="text-[10px] font-black text-stone-300 uppercase tracking-widest">{tech.name}</span>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Footer Elements */}

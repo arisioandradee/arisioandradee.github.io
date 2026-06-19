@@ -73,6 +73,46 @@ export default function Projects() {
       gradient: 'from-blue-600/20 via-purple-600/10 to-transparent'
     },
     {
+      title: 'Daniel Guimarães',
+      description: 'Landing page premium para autoridade e branding pessoal, com identidade visual sofisticada e foco em conversão.',
+      colSpan: 'md:col-span-7',
+      category: 'landing-pages',
+      link: 'https://danielguimaraesmartins.vercel.app/',
+      image: '/fotoDanielGuimaraes.png',
+      imagePosition: 'object-top',
+      gradient: 'from-stone-600/20 via-stone-900/10 to-transparent'
+    },
+    {
+      title: 'Lume Odonto',
+      description: 'Landing page para clínica odontológica, com design clean e acolhedor focado em agendamento de consultas e captação de pacientes.',
+      colSpan: 'md:col-span-5',
+      category: 'landing-pages',
+      link: 'https://lp-lume-odonto.vercel.app/',
+      image: '/lumeOdonto.png',
+      imagePosition: 'object-top',
+      gradient: 'from-cyan-500/20 via-teal-500/10 to-transparent'
+    },
+    {
+      title: 'Costa & Associados',
+      description: 'Landing page institucional para escritório de advocacia, transmitindo autoridade e confiança com estética corporativa e elegante.',
+      colSpan: 'md:col-span-5',
+      category: 'landing-pages',
+      link: 'https://lp-costa-associados.vercel.app/',
+      image: '/costasAssociados.png',
+      imagePosition: 'object-top',
+      gradient: 'from-amber-600/20 via-yellow-700/10 to-transparent'
+    },
+    {
+      title: 'Andrade Contabilidade',
+      description: 'Landing page para escritório de contabilidade, com foco em geração de leads e apresentação de serviços de forma profissional.',
+      colSpan: 'md:col-span-7',
+      category: 'landing-pages',
+      link: 'https://lp-andrade-contabilidade.vercel.app/',
+      image: '/andradeContabilidade.png',
+      imagePosition: 'object-top',
+      gradient: 'from-blue-600/20 via-indigo-700/10 to-transparent'
+    },
+    {
       title: 'HRFGO - Central de Registros',
       description: 'Plataforma de gestão hospitalar integrada desenvolvida para o Hospital Regional Francisco Galvão de Oliveira. O sistema centraliza o controle de dados operacionais e administrativos, otimizando fluxos de trabalho e garantindo a integridade da informação em uma infraestrutura em constante expansão.',
       colSpan: 'md:col-span-8',
@@ -285,23 +325,47 @@ export default function Projects() {
 
         <div className="mt-32 p-px bg-stone-800"></div>
 
-        <div className="mt-20 flex flex-col items-center text-center">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-white tracking-tighter">
-            Pronto para construir algo <br />
-            <span className="text-stone-500 italic">Extraordinário</span>?
-          </h2>
-          <p className="text-stone-400 mb-12 max-w-md font-medium text-lg">
-            Atualmente disponível para oportunidades selecionadas de freelance e consultoria arquitetural.
-          </p>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#contact"
-            className="group flex items-center gap-3 bg-white px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-black text-lg"
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex justify-center md:justify-start order-2 md:order-1"
           >
-            Vamos Conversar
-            <span className="transition-transform group-hover:translate-x-2">→</span>
-          </motion.a>
+            {/* Glow behind */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px] h-[320px] bg-stone-700/30 rounded-full blur-[100px] -z-10" />
+            <img
+              src="/arisioPNG.png"
+              alt="Arisio Andrade"
+              className="w-auto h-[340px] md:h-[420px] object-contain transition-all duration-700 drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)'
+              }}
+            />
+          </motion.div>
+
+          {/* Text + Button */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:order-2">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-white tracking-tighter">
+              Pronto para construir algo <br />
+              <span className="text-stone-500 italic">Extraordinário</span>?
+            </h2>
+            <p className="text-stone-400 mb-12 max-w-md font-medium text-lg">
+              Atualmente disponível para oportunidades selecionadas de freelance e consultoria arquitetural.
+            </p>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact"
+              className="group flex items-center gap-3 bg-white px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-black text-lg"
+            >
+              Vamos Conversar
+              <span className="transition-transform group-hover:translate-x-2">→</span>
+            </motion.a>
+          </div>
         </div>
       </div>
     </section>
