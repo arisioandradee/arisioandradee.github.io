@@ -36,7 +36,7 @@ export default function Hero() {
   const stats = [
     { value: '20+', label: 'PROJETOS' },
     { value: '03+', label: 'AUTOMAÇÕES REAIS' },
-    { value: '01', label: 'PRODUTO COMERCIALIZADO' },
+    { value: '02', label: 'PRODUTOS COMERCIALIZADOS' },
   ];
 
   return (

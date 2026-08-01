@@ -38,21 +38,21 @@ export default function About() {
   const journeyItems = [
     {
       type: 'exp',
-      title: 'Estagiário Full Stack',
-      subtitle: 'JustHelp',
+      title: 'Desenvolvedor Full Stack',
+      subtitle: 'Go Visa Law Firm',
       period: 'JUN DE 2026 - PRESENTE',
       location: 'Remota',
       duration: '1 mês',
-      description: 'Atuo como Estagiário Full Stack na JustHelp, desenvolvendo soluções completas para clientes: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também sou responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
+      description: 'Atuo como Estagiário, desenvolvendo soluções completas para clientes na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também sou responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
     },
     {
       type: 'exp',
-      title: 'Estagiário Full Stack',
-      subtitle: 'Dibai Sales',
+      title: 'Desenvolvedor Full Stack',
+      subtitle: 'Melhor Lead',
       period: 'OUT DE 2025 - PRESENTE',
       location: 'Remota',
       duration: '5 meses',
-      description: 'Como Estagiário Full Stack na Dibai Sales, atuo no ciclo completo de desenvolvimento de software, desde a criação de landing pages modernas com HTML e CSS até o desenvolvimento de ferramentas internas e soluções para o time de vendas. Utilizo Python para criar automações robustas e processamento de dados, transformando demandas operacionais em ferramentas tecnológicas que otimizam a performance comercial.'
+      description: 'Atuo como Estagiário no ciclo completo de desenvolvimento de software na Melhor Lead, desde a criação de landing pages modernas com HTML e CSS até o desenvolvimento de ferramentas internas e soluções para o time de vendas. Utilizo Python para criar automações robustas e processamento de dados, transformando demandas operacionais em ferramentas tecnológicas que otimizam a performance comercial.'
     },
     {
       type: 'exp',
@@ -197,7 +197,8 @@ export default function About() {
 
   return (
     <section id="about" className="py-32 bg-surface-off-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="absolute inset-0 bg-noise pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-8 relative">
         <header className="mb-32 text-center max-w-3xl mx-auto space-y-6">
           <span className="text-xs font-headline font-bold tracking-[0.4em] text-stone-400 uppercase">Jornada</span>
           <h2 className="text-5xl md:text-7xl font-headline font-black tracking-tighter text-stone-900 leading-none">

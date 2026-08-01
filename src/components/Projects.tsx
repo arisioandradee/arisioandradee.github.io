@@ -7,9 +7,20 @@ export default function Projects() {
 
   const projects = [
     {
+      title: 'Melhor Agente',
+      description: 'Agente de IA para qualquer tipo de negócio, capaz de responder de forma humanizada e disparar mensagens através de planilhas. Conta com API para integração com outros produtos, dashboard e painel administrativo completo.',
+      colSpan: 'md:col-span-6',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      image: '/melhorAgente.png',
+      imagePosition: 'object-top',
+      gradient: 'from-purple-600/20 via-fuchsia-600/10 to-transparent'
+    },
+    {
       title: 'Melhor  Lead',
       description: 'Sistema inteligente de prospecção e validação de leads com dados da Receita Federal, integrado às APIs Casa dos Dados e Assertiva. Enriquece informações com redes sociais e dados dos sócios, além de contar com integração ao Asaas para gestão de pagamentos.',
-      colSpan: 'md:col-span-8',
+      colSpan: 'md:col-span-6',
       category: 'empresarial',
       isPrivate: true,
       image: '/melhorLead.png',
@@ -26,13 +37,14 @@ export default function Projects() {
       gradient: 'from-stone-600/20 via-stone-800/10 to-transparent'
     },
     {
-      title: 'Dibai Academy',
-      description: 'Landing page estratégica de alta conversão para captação de novos alunos, com foco em design persuasivo e resultados.',
-      colSpan: 'md:col-span-7',
+      title: 'Rezet',
+      description: 'Landing page institucional para estúdio de automação e engenharia de software sob medida, apresentando agentes de IA, automações e projetos entregues com foco em conversão e credibilidade técnica.',
+      colSpan: 'md:col-span-6',
       category: 'landing-pages',
-      link: 'http://academy.dibaisales.com.br/',
-      image: '/dibaiAcademy.png',
-      gradient: 'from-emerald-600/20 via-teal-600/10 to-transparent'
+      isNew: true,
+      image: '/rezet.png',
+      imagePosition: 'object-top',
+      gradient: 'from-violet-600/20 via-indigo-600/10 to-transparent'
     },
     {
       title: 'Dibai Tools',
@@ -46,16 +58,17 @@ export default function Projects() {
     {
       title: 'Melhor Lead',
       description: 'Landing page estratégica focada na apresentação da plataforma e conversão de leads qualificados, com demonstração de funcionalidades.',
-      colSpan: 'md:col-span-5',
+      colSpan: 'md:col-span-6',
       category: 'landing-pages',
       link: 'https://sitemelhorlead.dibaisales.com.br/',
       image: '/lpmelhorlead.png',
+      imagePosition: 'object-top',
       gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent'
     },
     {
       title: 'Patrick Fernandes',
       description: 'Landing page premium para autoridade digital e branding pessoal, utilizando estética minimalista e moderna.',
-      colSpan: 'md:col-span-5',
+      colSpan: 'md:col-span-4',
       category: 'landing-pages',
       link: 'https://patrick.dibaisales.com.br/',
       image: '/site_patrick.png',
@@ -63,9 +76,19 @@ export default function Projects() {
       gradient: 'from-stone-600/20 via-stone-900/10 to-transparent'
     },
     {
+      title: 'Dibai Academy',
+      description: 'Landing page estratégica de alta conversão para captação de novos alunos, com foco em design persuasivo e resultados.',
+      colSpan: 'md:col-span-4',
+      category: 'landing-pages',
+      link: 'http://academy.dibaisales.com.br/',
+      image: '/dibaiAcademy.png',
+      imagePosition: 'object-top',
+      gradient: 'from-emerald-600/20 via-teal-600/10 to-transparent'
+    },
+    {
       title: 'Arisio Andrade',
       description: 'Landing page de alto nível desenvolvida para apresentar minha trajetória e portfólio, com foco em estética premium e performance.',
-      colSpan: 'md:col-span-7',
+      colSpan: 'md:col-span-4',
       category: 'landing-pages',
       link: 'https://arisioandrade.com.br/',
       image: '/foto_portfolio.png',
@@ -93,29 +116,9 @@ export default function Projects() {
       gradient: 'from-cyan-500/20 via-teal-500/10 to-transparent'
     },
     {
-      title: 'Costa & Associados',
-      description: 'Landing page institucional para escritório de advocacia, transmitindo autoridade e confiança com estética corporativa e elegante.',
-      colSpan: 'md:col-span-5',
-      category: 'landing-pages',
-      link: 'https://lp-costa-associados.vercel.app/',
-      image: '/costasAssociados.png',
-      imagePosition: 'object-top',
-      gradient: 'from-amber-600/20 via-yellow-700/10 to-transparent'
-    },
-    {
-      title: 'Andrade Contabilidade',
-      description: 'Landing page para escritório de contabilidade, com foco em geração de leads e apresentação de serviços de forma profissional.',
-      colSpan: 'md:col-span-7',
-      category: 'landing-pages',
-      link: 'https://lp-andrade-contabilidade.vercel.app/',
-      image: '/andradeContabilidade.png',
-      imagePosition: 'object-top',
-      gradient: 'from-blue-600/20 via-indigo-700/10 to-transparent'
-    },
-    {
       title: 'HRFGO - Central de Registros',
       description: 'Plataforma de gestão hospitalar integrada desenvolvida para o Hospital Regional Francisco Galvão de Oliveira. O sistema centraliza o controle de dados operacionais e administrativos, otimizando fluxos de trabalho e garantindo a integridade da informação em uma infraestrutura em constante expansão.',
-      colSpan: 'md:col-span-8',
+      colSpan: 'md:col-span-4',
       category: 'empresarial',
       isPrivate: true,
       image: '/portalhrfgo.png',
@@ -262,6 +265,11 @@ export default function Projects() {
               >
                 {/* Image Placeholder / Tech Visual */}
                 <div className="relative h-48 overflow-hidden bg-stone-950/50">
+                  {project.isNew && (
+                    <span className="absolute top-4 right-4 z-10 bg-white text-black text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg">
+                      Novo
+                    </span>
+                  )}
                   {project.image ? (
                     <>
                       <img
@@ -325,47 +333,23 @@ export default function Projects() {
 
         <div className="mt-32 p-px bg-stone-800"></div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex justify-center md:justify-start order-2 md:order-1"
+        <div className="mt-20 flex flex-col items-center text-center">
+          <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-white tracking-tighter">
+            Pronto para construir algo <br />
+            <span className="text-stone-500 italic">Extraordinário</span>?
+          </h2>
+          <p className="text-stone-400 mb-12 max-w-md font-medium text-lg">
+            Atualmente disponível para oportunidades selecionadas de freelance e consultoria arquitetural.
+          </p>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="#contact"
+            className="group flex items-center gap-3 bg-white px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-black text-lg"
           >
-            {/* Glow behind */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px] h-[320px] bg-stone-700/30 rounded-full blur-[100px] -z-10" />
-            <img
-              src="/arisioPNG.png"
-              alt="Arisio Andrade"
-              className="w-auto h-[340px] md:h-[420px] object-contain transition-all duration-700 drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]"
-              style={{
-                maskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)'
-              }}
-            />
-          </motion.div>
-
-          {/* Text + Button */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:order-2">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-white tracking-tighter">
-              Pronto para construir algo <br />
-              <span className="text-stone-500 italic">Extraordinário</span>?
-            </h2>
-            <p className="text-stone-400 mb-12 max-w-md font-medium text-lg">
-              Atualmente disponível para oportunidades selecionadas de freelance e consultoria arquitetural.
-            </p>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="group flex items-center gap-3 bg-white px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-black text-lg"
-            >
-              Vamos Conversar
-              <span className="transition-transform group-hover:translate-x-2">→</span>
-            </motion.a>
-          </div>
+            Vamos Conversar
+            <span className="transition-transform group-hover:translate-x-2">→</span>
+          </motion.a>
         </div>
       </div>
     </section>

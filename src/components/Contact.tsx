@@ -1,10 +1,17 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Instagram, Linkedin, Github, ArrowUpRight } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const socials = [
+    { icon: Instagram, name: 'Instagram', handle: '@arisioandrade_', href: 'https://www.instagram.com/arisioandrade_/' },
+    { icon: Linkedin, name: 'LinkedIn', handle: 'arisioandrade', href: 'https://www.linkedin.com/in/arisioandrade' },
+    { icon: Github, name: 'GitHub', handle: 'arisioandradee', href: 'https://github.com/arisioandradee' },
+    { icon: null, name: 'WhatsApp', handle: 'Falar agora', href: 'https://wa.me/5588921908043?text=' + encodeURIComponent('Olá Arisio, gostaria de falar sobre um projeto!') },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     // We don't preventDefault fully if using target="hidden_iframe", 
@@ -17,8 +24,9 @@ export default function Contact() {
     }, 500);
   };
   return (
-    <section id="contact" className="py-24 px-6 bg-stone-50 text-stone-900">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-24 px-6 bg-stone-50 text-stone-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-noise pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative">
         <header className="mb-16 text-center space-y-4">
           <span className="font-headline text-stone-400 text-xs tracking-[0.4em] uppercase font-bold block">Contato</span>
           <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter text-stone-900 leading-tight">
@@ -30,7 +38,39 @@ export default function Contact() {
           </p>
         </header>
 
-        <div className="bg-white p-8 md:p-16 rounded-[3rem] border border-stone-100 shadow-2xl shadow-stone-200/50 relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="order-2 lg:order-1 flex flex-col gap-4">
+          {socials.map((social, idx) => (
+            <motion.a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group flex flex-1 items-center gap-4 bg-white p-6 rounded-[2rem] border border-stone-100 shadow-lg shadow-stone-200/40 hover:border-stone-900/10 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-stone-900 text-white flex items-center justify-center shrink-0 group-hover:bg-black transition-colors">
+                {social.icon ? (
+                  <social.icon size={20} />
+                ) : (
+                  <img src="https://cdn.simpleicons.org/whatsapp/white" alt="WhatsApp" className="w-5 h-5" />
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-stone-900">{social.name}</p>
+                <p className="text-sm text-stone-500 truncate">{social.handle}</p>
+              </div>
+              <ArrowUpRight size={18} className="text-stone-300 group-hover:text-stone-900 transition-colors shrink-0" />
+            </motion.a>
+          ))}
+        </div>
+
+        <div className="order-1 lg:order-2 lg:col-span-2 bg-white p-8 md:p-16 rounded-[3rem] border border-stone-100 shadow-2xl shadow-stone-200/50 relative overflow-hidden">
           {/* Success Overlay */}
           <AnimatePresence>
             {submitted && (
@@ -121,7 +161,7 @@ export default function Contact() {
             }}
           />
         </div>
-
+        </div>
 
       </div>
     </section>
