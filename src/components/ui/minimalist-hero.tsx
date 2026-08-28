@@ -83,6 +83,7 @@ export const MinimalistHero = ({
            <div className="absolute bottom-0 right-0 z-0 h-2/3 w-2/3 md:hidden" style={{ background: 'radial-gradient(ellipse at bottom right, black 0%, rgba(0,0,0,0.6) 35%, transparent 70%)' }} />
            <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/5 via-black/30 to-black/60" />
            <div className="hidden md:block absolute bottom-0 right-0 z-0 h-3/4 w-3/4" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 35%, transparent 70%)' }} />
+           <div className="absolute bottom-0 left-0 right-0 z-0 h-24 md:h-28 bg-gradient-to-t from-black to-transparent" />
          </>
        ) : (
          <div 
@@ -161,7 +162,7 @@ export const MinimalistHero = ({
       {/* Main Content Area */}
       <div className={cn(
         "relative w-full max-w-7xl flex-grow items-center",
-        videoSrc ? "flex flex-col md:flex-row justify-end mt-[40vh] md:mt-0" : "grid grid-cols-1 md:grid-cols-3 mt-12 md:mt-0"
+        videoSrc ? "flex flex-col md:flex-row justify-end md:justify-center mt-[40vh] md:mt-0" : "grid grid-cols-1 md:grid-cols-3 mt-12 md:mt-0"
       )}>
         {/* Left Text Content */}
         <motion.div
@@ -171,7 +172,7 @@ export const MinimalistHero = ({
           className={cn(
             "z-20 w-full",
             videoSrc
-              ? "flex flex-col items-center text-center md:w-1/2 lg:w-5/12 md:p-8 space-y-4 md:space-y-6 md:bg-black/55 md:backdrop-blur-2xl md:rounded-3xl md:border md:border-white/10 md:shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
+              ? "flex flex-col items-center text-center md:w-1/2 lg:w-5/12 md:p-8 space-y-4 md:space-y-6 md:bg-black/30 md:backdrop-blur-xl md:rounded-3xl md:border md:border-white/10 md:shadow-[0_30px_80px_rgba(0,0,0,0.4)]"
               : "order-2 md:order-1 text-center md:text-left md:pr-12 pt-6 md:pt-0"
           )}
         >
