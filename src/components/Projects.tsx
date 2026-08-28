@@ -7,6 +7,33 @@ export default function Projects() {
 
   const projects = [
     {
+      title: 'Qual Visto GV',
+      description: 'Funil público de qualificação de visto, que cria o lead antes mesmo de terminar a análise, combinando Rule Engine com IA opcional.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-sky-600/20 via-blue-600/10 to-transparent'
+    },
+    {
+      title: 'Sistema Comercial GV',
+      description: 'CRM de vendas com inbox de WhatsApp nativo, round-robin e cadência automática para o time de closers converter leads em clientes.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-lime-600/20 via-green-600/10 to-transparent'
+    },
+    {
+      title: 'Portal Case Builder GV',
+      description: 'Plataforma de pós-venda para gestão do processo de imigração, com checklist dinâmico e IA para análise de documentos do cliente.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-amber-600/20 via-orange-600/10 to-transparent'
+    },
+    {
       title: 'Melhor Agente',
       description: 'Agente de IA para qualquer tipo de negócio, capaz de responder de forma humanizada e disparar mensagens através de planilhas. Conta com API para integração com outros produtos, dashboard e painel administrativo completo.',
       colSpan: 'md:col-span-6',
@@ -124,33 +151,6 @@ export default function Projects() {
       gradient: 'from-slate-600/20 via-gray-600/10 to-transparent'
     },
     {
-      title: 'Qual Visto GV',
-      description: 'Funil público de qualificação de visto, que cria o lead antes mesmo de terminar a análise, combinando Rule Engine com IA opcional.',
-      colSpan: 'md:col-span-4',
-      category: 'empresarial',
-      isPrivate: true,
-      isNew: true,
-      gradient: 'from-sky-600/20 via-blue-600/10 to-transparent'
-    },
-    {
-      title: 'Sistema Comercial GV',
-      description: 'CRM de vendas com inbox de WhatsApp nativo, round-robin e cadência automática para o time de closers converter leads em clientes.',
-      colSpan: 'md:col-span-4',
-      category: 'empresarial',
-      isPrivate: true,
-      isNew: true,
-      gradient: 'from-lime-600/20 via-green-600/10 to-transparent'
-    },
-    {
-      title: 'Portal Case Builder GV',
-      description: 'Plataforma de pós-venda para gestão do processo de imigração, com checklist dinâmico e IA para análise de documentos do cliente.',
-      colSpan: 'md:col-span-4',
-      category: 'empresarial',
-      isPrivate: true,
-      isNew: true,
-      gradient: 'from-amber-600/20 via-orange-600/10 to-transparent'
-    },
-    {
       title: 'NutrIA',
       description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.',
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
@@ -180,7 +180,7 @@ export default function Projects() {
       title: 'HelpDesk',
       description: 'Aplicação full-stack desenvolvida para gerenciamento de chamados de suporte técnico, com foco na organização e resolução.',
       github: 'https://github.com/arisioandradee/helpdesk-project',
-      colSpan: 'md:col-span-5',
+      colSpan: 'md:col-span-4',
       category: 'pessoal',
       image: '/projetos/pessoal/helpdesks.png',
       gradient: 'from-indigo-600/20 via-blue-600/10 to-transparent'
@@ -199,7 +199,7 @@ export default function Projects() {
       title: 'MeuSaldo',
       description: 'Plataforma web avançada para controle financeiro pessoal. O sistema permite a gestão completa de receitas e despesas, definição de metas de economia e criação de "cofrinhos" virtuais.',
       link: 'https://meusaldo.arisioandrade.com.br',
-      colSpan: 'md:col-span-8',
+      colSpan: 'md:col-span-4',
       category: 'pessoal',
       image: '/projetos/pessoal/MeuSaldo.png',
       imagePosition: 'object-top',
