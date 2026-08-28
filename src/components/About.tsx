@@ -39,16 +39,29 @@ export default function About() {
     {
       type: 'exp',
       title: 'Desenvolvedor Full Stack',
-      subtitle: 'Go Visa Law Firm',
-      period: 'JUN DE 2026 - PRESENTE',
+      subtitle: 'GV Global',
+      logo: '/empresas/logo-gvglobal.jpeg',
+      period: 'AGO DE 2026 - PRESENTE',
       location: 'Remota',
       duration: '1 mês',
-      description: 'Atuo como Estagiário, desenvolvendo soluções completas para clientes na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também sou responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
+      description: 'Atuo como Desenvolvedor Full Stack na GV Global, dando continuidade ao trabalho iniciado na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos, além da configuração e gerenciamento de VPS.'
+    },
+    {
+      type: 'exp',
+      title: 'Desenvolvedor Full Stack',
+      subtitle: 'Go Visa Law Firm',
+      logo: '/empresas/logo-govisa.png',
+      logoBg: '#dc2626',
+      period: 'JUN DE 2026 - AGO DE 2026',
+      location: 'Remota',
+      duration: '2 meses',
+      description: 'Atuei como Estagiário, desenvolvendo soluções completas para clientes na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também fui responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
     },
     {
       type: 'exp',
       title: 'Desenvolvedor Full Stack',
       subtitle: 'Melhor Lead',
+      logo: '/empresas/logo-melhorlead.png',
       period: 'OUT DE 2025 - PRESENTE',
       location: 'Remota',
       duration: '5 meses',
@@ -58,6 +71,7 @@ export default function About() {
       type: 'exp',
       title: 'Assessor',
       subtitle: 'Câmara Municipal de Morada Nova',
+      logo: '/empresas/logo-camaramn.jpg',
       period: 'MAR DE 2025 - PRESENTE',
       location: 'Morada Nova, Ceará',
       duration: '1 ano',
@@ -67,6 +81,7 @@ export default function About() {
       type: 'edu',
       title: 'Bacharel em Sistemas de Informação',
       subtitle: 'Universidade Federal do Ceará (UFC)',
+      logo: '/empresas/logo-ufc.svg',
       period: '2021 - 2023',
       location: 'Quixadá, Ceará',
       description: 'Período cursado na Universidade Federal do Ceará, focado em fundamentos sólidos de computação e sistemas, antes de realizar a transferência externa para continuidade dos estudos em outra instituição.'
@@ -75,6 +90,7 @@ export default function About() {
       type: 'exp',
       title: 'Assistente administrativo',
       subtitle: 'Hiper Morada Nova',
+      logo: '/empresas/logo-hiper.jfif',
       period: 'ABR DE 2024 - MAR DE 2025',
       location: 'Morada Nova, Ceará',
       duration: '1 ano',
@@ -84,6 +100,7 @@ export default function About() {
       type: 'exp',
       title: 'Estagiário de TI',
       subtitle: 'Alvoar Lácteos',
+      logo: '/empresas/logo-alvoar.png',
       period: 'JUL DE 2020 - DEZ DE 2020',
       location: 'Morada Nova, Ceará',
       duration: '5 meses',
@@ -93,6 +110,7 @@ export default function About() {
       type: 'edu',
       title: 'Técnico em Redes de Computadores',
       subtitle: 'EEEP Osmira Eduardo de Castro',
+      logo: '/empresas/logo-osmira.svg',
       period: '2018 - 2020',
       location: 'Morada Nova, Ceará',
       description: 'Formação como Técnico em Redes de Computadores, onde adquiri conhecimentos essenciais em infraestrutura de TI, protocolos de comunicação, configuração de servidores e segurança de redes. Foi o ponto de partida para minha carreira na computação.'
@@ -138,9 +156,19 @@ export default function About() {
                 <h3 className="text-2xl font-headline font-black text-stone-900 tracking-tight">
                   {item.title}
                 </h3>
-                <p className={`text-sm font-bold uppercase tracking-widest ${isEdu ? 'text-stone-400' : 'text-stone-600'}`}>
-                  {item.subtitle}
-                </p>
+                <div className={`flex items-center gap-2 ${isLeft ? 'md:flex-row-reverse' : 'flex-row'}`}>
+                  {item.logo && (
+                    <img
+                      src={item.logo}
+                      alt={item.subtitle}
+                      style={item.logoBg ? { backgroundColor: item.logoBg } : undefined}
+                      className="w-6 h-6 rounded-md object-cover border border-stone-200 shadow-sm shrink-0"
+                    />
+                  )}
+                  <p className={`text-sm font-bold uppercase tracking-widest ${isEdu ? 'text-stone-400' : 'text-stone-600'}`}>
+                    {item.subtitle}
+                  </p>
+                </div>
               </div>
             </div>
 
