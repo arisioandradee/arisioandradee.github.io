@@ -13,6 +13,8 @@ export default function Projects() {
       category: 'empresarial',
       isPrivate: true,
       isNew: true,
+      image: '/projetos/empresarial/qual-visto-gv.png',
+      imagePosition: 'object-top',
       gradient: 'from-sky-600/20 via-blue-600/10 to-transparent'
     },
     {
@@ -22,6 +24,8 @@ export default function Projects() {
       category: 'empresarial',
       isPrivate: true,
       isNew: true,
+      image: '/projetos/empresarial/sistema-comercial-gv.png',
+      imagePosition: 'object-top',
       gradient: 'from-lime-600/20 via-green-600/10 to-transparent'
     },
     {
@@ -31,6 +35,8 @@ export default function Projects() {
       category: 'empresarial',
       isPrivate: true,
       isNew: true,
+      image: '/projetos/empresarial/portal-case-builder-gv.png',
+      imagePosition: 'object-top',
       gradient: 'from-amber-600/20 via-orange-600/10 to-transparent'
     },
     {
@@ -151,6 +157,16 @@ export default function Projects() {
       gradient: 'from-slate-600/20 via-gray-600/10 to-transparent'
     },
     {
+      title: 'Centralyza',
+      description: 'SaaS de gestão para gabinetes de vereadores, com CRUD completo de entidades, upload de arquivos e modelo multi-tenant por gabinete.',
+      colSpan: 'md:col-span-5',
+      category: 'pessoal',
+      isNew: true,
+      image: '/projetos/pessoal/centralyza.png',
+      imagePosition: 'object-top',
+      gradient: 'from-rose-600/20 via-red-600/10 to-transparent'
+    },
+    {
       title: 'NutrIA',
       description: 'Aplicação web desenvolvida para geração de planos alimentares personalizados utilizando inteligência artificial, com base no modelo Gemini.',
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
@@ -159,13 +175,6 @@ export default function Projects() {
       image: '/projetos/pessoal/nutria.png',
       imagePosition: 'object-top',
       gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
-    },
-    {
-      title: 'Centralyza',
-      description: 'SaaS de gestão para gabinetes de vereadores, com CRUD completo de entidades, upload de arquivos e modelo multi-tenant por gabinete.',
-      colSpan: 'md:col-span-5',
-      category: 'pessoal',
-      gradient: 'from-rose-600/20 via-red-600/10 to-transparent'
     },
     /* {
       title: 'Catálogo de Carros',
