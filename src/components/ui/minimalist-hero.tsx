@@ -75,7 +75,7 @@ export const MinimalistHero = ({
              loop
              muted
              playsInline
-             className="absolute top-0 left-0 right-0 z-0 h-[50vh] md:inset-0 md:h-full w-full object-cover object-[50%_10%] md:object-[85%_10%]"
+             className="absolute top-0 left-0 right-0 z-0 h-[50vh] md:inset-0 md:h-full w-full object-cover object-[50%_10%] md:object-[center_10%] md:scale-125 md:-translate-x-[12%]"
            >
              <source src={videoSrc} type="video/mp4" />
            </video>
