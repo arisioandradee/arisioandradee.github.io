@@ -12,18 +12,17 @@ export default function Projects() {
       colSpan: 'md:col-span-6',
       category: 'empresarial',
       isPrivate: true,
-      isNew: true,
-      image: '/melhorAgente.png',
+      image: '/projetos/empresarial/melhorAgente.png',
       imagePosition: 'object-top',
       gradient: 'from-purple-600/20 via-fuchsia-600/10 to-transparent'
     },
     {
       title: 'Melhor  Lead',
-      description: 'Sistema inteligente de prospecção e validação de leads com dados da Receita Federal, integrado às APIs Casa dos Dados e Assertiva. Enriquece informações com redes sociais e dados dos sócios, além de contar com integração ao Asaas para gestão de pagamentos.',
+      description: 'Sistema inteligente de prospecção e validação de leads com dados da Receita Federal, integrado à API Casa dos Dados. Enriquece informações com redes sociais e dados dos sócios, além de contar com integração ao Asaas para gestão de pagamentos.',
       colSpan: 'md:col-span-6',
       category: 'empresarial',
       isPrivate: true,
-      image: '/melhorLead.png',
+      image: '/projetos/empresarial/melhorLead.png',
       imagePosition: 'object-top',
       gradient: 'from-blue-600/20 via-indigo-600/10 to-transparent'
     },
@@ -33,7 +32,7 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'empresarial',
       isPrivate: true,
-      image: '/pa.png',
+      image: '/projetos/empresarial/pa.png',
       gradient: 'from-stone-600/20 via-stone-800/10 to-transparent'
     },
     {
@@ -41,8 +40,7 @@ export default function Projects() {
       description: 'Landing page institucional para estúdio de automação e engenharia de software sob medida, apresentando agentes de IA, automações e projetos entregues com foco em conversão e credibilidade técnica.',
       colSpan: 'md:col-span-6',
       category: 'landing-pages',
-      isNew: true,
-      image: '/rezet.png',
+      image: '/projetos/landingpage/rezet.png',
       imagePosition: 'object-top',
       gradient: 'from-violet-600/20 via-indigo-600/10 to-transparent'
     },
@@ -52,7 +50,7 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'empresarial',
       isPrivate: true,
-      image: '/centralDibai.png',
+      image: '/projetos/empresarial/centralDibai.png',
       gradient: 'from-orange-600/20 via-red-600/10 to-transparent'
     },
     {
@@ -61,7 +59,7 @@ export default function Projects() {
       colSpan: 'md:col-span-6',
       category: 'landing-pages',
       link: 'https://sitemelhorlead.dibaisales.com.br/',
-      image: '/lpmelhorlead.png',
+      image: '/projetos/landingpage/lpmelhorlead.png',
       imagePosition: 'object-top',
       gradient: 'from-blue-500/20 via-indigo-500/10 to-transparent'
     },
@@ -71,7 +69,7 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'landing-pages',
       link: 'https://patrick.dibaisales.com.br/',
-      image: '/site_patrick.png',
+      image: '/projetos/landingpage/site_patrick.png',
       imagePosition: 'object-top',
       gradient: 'from-stone-600/20 via-stone-900/10 to-transparent'
     },
@@ -81,7 +79,7 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'landing-pages',
       link: 'http://academy.dibaisales.com.br/',
-      image: '/dibaiAcademy.png',
+      image: '/projetos/landingpage/dibaiAcademy.png',
       imagePosition: 'object-top',
       gradient: 'from-emerald-600/20 via-teal-600/10 to-transparent'
     },
@@ -91,7 +89,7 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'landing-pages',
       link: 'https://arisioandrade.com.br/',
-      image: '/foto_portfolio.png',
+      image: '/projetos/landingpage/foto_portfolio.png',
       imagePosition: 'object-top',
       gradient: 'from-blue-600/20 via-purple-600/10 to-transparent'
     },
@@ -101,7 +99,7 @@ export default function Projects() {
       colSpan: 'md:col-span-7',
       category: 'landing-pages',
       link: 'https://danielguimaraesmartins.vercel.app/',
-      image: '/fotoDanielGuimaraes.png',
+      image: '/projetos/landingpage/fotoDanielGuimaraes.png',
       imagePosition: 'object-top',
       gradient: 'from-stone-600/20 via-stone-900/10 to-transparent'
     },
@@ -111,7 +109,7 @@ export default function Projects() {
       colSpan: 'md:col-span-5',
       category: 'landing-pages',
       link: 'https://lp-lume-odonto.vercel.app/',
-      image: '/lumeOdonto.png',
+      image: '/projetos/landingpage/lumeOdonto.png',
       imagePosition: 'object-top',
       gradient: 'from-cyan-500/20 via-teal-500/10 to-transparent'
     },
@@ -121,9 +119,36 @@ export default function Projects() {
       colSpan: 'md:col-span-4',
       category: 'empresarial',
       isPrivate: true,
-      image: '/portalhrfgo.png',
+      image: '/projetos/empresarial/portalhrfgo.png',
       imagePosition: 'object-top',
       gradient: 'from-slate-600/20 via-gray-600/10 to-transparent'
+    },
+    {
+      title: 'Qual Visto GV',
+      description: 'Funil público de qualificação de visto, que cria o lead antes mesmo de terminar a análise, combinando Rule Engine com IA opcional.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-sky-600/20 via-blue-600/10 to-transparent'
+    },
+    {
+      title: 'Sistema Comercial GV',
+      description: 'CRM de vendas com inbox de WhatsApp nativo, round-robin e cadência automática para o time de closers converter leads em clientes.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-lime-600/20 via-green-600/10 to-transparent'
+    },
+    {
+      title: 'Portal Case Builder GV',
+      description: 'Plataforma de pós-venda para gestão do processo de imigração, com checklist dinâmico e IA para análise de documentos do cliente.',
+      colSpan: 'md:col-span-4',
+      category: 'empresarial',
+      isPrivate: true,
+      isNew: true,
+      gradient: 'from-amber-600/20 via-orange-600/10 to-transparent'
     },
     {
       title: 'NutrIA',
@@ -131,9 +156,16 @@ export default function Projects() {
       github: 'https://github.com/arisioandradee/nutria-diet-planner',
       colSpan: 'md:col-span-7',
       category: 'pessoal',
-      image: '/nutria.png',
+      image: '/projetos/pessoal/nutria.png',
       imagePosition: 'object-top',
       gradient: 'from-fuchsia-600/20 via-pink-600/10 to-transparent'
+    },
+    {
+      title: 'Centralyza',
+      description: 'SaaS de gestão para gabinetes de vereadores, com CRUD completo de entidades, upload de arquivos e modelo multi-tenant por gabinete.',
+      colSpan: 'md:col-span-5',
+      category: 'pessoal',
+      gradient: 'from-rose-600/20 via-red-600/10 to-transparent'
     },
     /* {
       title: 'Catálogo de Carros',
@@ -141,7 +173,7 @@ export default function Projects() {
       colSpan: 'md:col-span-5',
       category: 'pessoal',
       isPrivate: true,
-      image: '/catalogoCarros.png',
+      image: '/projetos/pessoal/catalogoCarros.png',
       gradient: 'from-cyan-600/20 via-blue-600/10 to-transparent'
     }, */
     {
@@ -150,7 +182,7 @@ export default function Projects() {
       github: 'https://github.com/arisioandradee/helpdesk-project',
       colSpan: 'md:col-span-5',
       category: 'pessoal',
-      image: '/helpdesks.png',
+      image: '/projetos/pessoal/helpdesks.png',
       gradient: 'from-indigo-600/20 via-blue-600/10 to-transparent'
     },
     {
@@ -159,7 +191,7 @@ export default function Projects() {
       github: 'https://github.com/arisioandradee/sistema-aprendizagem',
       colSpan: 'md:col-span-4',
       category: 'pessoal',
-      image: '/sistemaAprendizagem.jpg',
+      image: '/projetos/pessoal/sistemaAprendizagem.jpg',
       imagePosition: 'object-top',
       gradient: 'from-amber-600/20 via-yellow-600/10 to-transparent'
     },
@@ -169,7 +201,7 @@ export default function Projects() {
       link: 'https://meusaldo.arisioandrade.com.br',
       colSpan: 'md:col-span-8',
       category: 'pessoal',
-      image: '/MeuSaldo.png',
+      image: '/projetos/pessoal/MeuSaldo.png',
       imagePosition: 'object-top',
       gradient: 'from-emerald-600/20 via-green-600/10 to-transparent'
     },
@@ -179,7 +211,7 @@ export default function Projects() {
       link: 'https://palpiteiros.arisioandrade.com.br/dashboard',
       colSpan: 'md:col-span-7',
       category: 'pessoal',
-      image: '/palpiteiros.png',
+      image: '/projetos/pessoal/palpiteiros.png',
       imagePosition: 'object-top',
       gradient: 'from-yellow-600/20 via-green-600/10 to-transparent'
     },
@@ -189,7 +221,7 @@ export default function Projects() {
       link: 'https://ace5.vercel.app/',
       colSpan: 'md:col-span-5',
       category: 'pessoal',
-      image: '/dengue.png',
+      image: '/projetos/pessoal/dengue.png',
       imagePosition: 'object-top',
       gradient: 'from-teal-600/20 via-cyan-600/10 to-transparent'
     },

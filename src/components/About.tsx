@@ -49,17 +49,6 @@ export default function About() {
     {
       type: 'exp',
       title: 'Desenvolvedor Full Stack',
-      subtitle: 'Go Visa Law Firm',
-      logo: '/empresas/logo-govisa.png',
-      logoBg: '#dc2626',
-      period: 'JUN DE 2026 - AGO DE 2026',
-      location: 'Remota',
-      duration: '2 meses',
-      description: 'Atuei como Estagiário, desenvolvendo soluções completas para clientes na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também fui responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
-    },
-    {
-      type: 'exp',
-      title: 'Desenvolvedor Full Stack',
       subtitle: 'Melhor Lead',
       logo: '/empresas/logo-melhorlead.png',
       period: 'OUT DE 2025 - PRESENTE',
@@ -76,6 +65,17 @@ export default function About() {
       location: 'Morada Nova, Ceará',
       duration: '1 ano',
       description: 'Atuo de forma multidisciplinar, combinando análise de dados, administração e criatividade. Sou responsável pelo controle de planilhas e dashboards no Power BI, organização de documentos e criação de ofícios institucionais. Além disso, participo da gestão de mídias e produção de artes, garantindo uma comunicação visual clara e eficiente para a Câmara Municipal.'
+    },
+    {
+      type: 'exp',
+      title: 'Desenvolvedor Full Stack',
+      subtitle: 'Go Visa Law Firm',
+      logo: '/empresas/logo-govisa.png',
+      logoBg: '#dc2626',
+      period: 'JUN DE 2026 - AGO DE 2026',
+      location: 'Remota',
+      duration: '2 meses',
+      description: 'Atuei como Estagiário, desenvolvendo soluções completas para clientes na Go Visa Law Firm: criação de landing pages de alta conversão, sistemas de CRM, agentes inteligentes com IA e automações de processos. Também fui responsável pela configuração e gerenciamento de VPS, garantindo a infraestrutura e o deploy das aplicações.'
     },
     {
       type: 'edu',
@@ -158,12 +158,16 @@ export default function About() {
                 </h3>
                 <div className={`flex items-center gap-2 ${isLeft ? 'md:flex-row-reverse' : 'flex-row'}`}>
                   {item.logo && (
-                    <img
-                      src={item.logo}
-                      alt={item.subtitle}
-                      style={item.logoBg ? { backgroundColor: item.logoBg } : undefined}
-                      className="w-6 h-6 rounded-md object-cover border border-stone-200 shadow-sm shrink-0"
-                    />
+                    <div
+                      className="w-7 h-7 rounded-md border border-stone-200 shadow-sm shrink-0 flex items-center justify-center overflow-hidden p-0.5"
+                      style={{ backgroundColor: item.logoBg || '#ffffff' }}
+                    >
+                      <img
+                        src={item.logo}
+                        alt={item.subtitle}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   )}
                   <p className={`text-sm font-bold uppercase tracking-widest ${isEdu ? 'text-stone-400' : 'text-stone-600'}`}>
                     {item.subtitle}
@@ -284,7 +288,7 @@ export default function About() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="/Profile.pdf"
-            download
+            download="Curriculo - Arisio Andrade.pdf"
             className="group flex items-center gap-3 bg-stone-900 px-12 py-5 rounded-[2rem] font-bold hover:shadow-2xl transition-all text-white text-lg"
           >
             <Download size={20} />
