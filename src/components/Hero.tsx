@@ -47,7 +47,7 @@ export default function Hero() {
         mainText={"Desenvolvedor Full Stack\n\nTransformando processos complexos em soluções inteligentes através de software, automação e dados."}
         readMoreLink="#about"
         imageSrc="/fotoHero.png"
-        videoSrc="/videoHero.mp4"
+        videoSrc="/videoHero2.mp4"
         imageAlt="Arisio Andrade"
         overlayText={{
           part1: 'FULL',

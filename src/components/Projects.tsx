@@ -162,6 +162,7 @@ export default function Projects() {
       colSpan: 'md:col-span-5',
       category: 'pessoal',
       isNew: true,
+      link: 'https://centralyza.rezet.site/',
       image: '/projetos/pessoal/centralyza.png',
       imagePosition: 'object-top',
       gradient: 'from-rose-600/20 via-red-600/10 to-transparent'
