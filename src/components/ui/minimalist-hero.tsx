@@ -75,7 +75,7 @@ export const MinimalistHero = ({
              loop
              muted
              playsInline
-             className="absolute top-0 left-0 right-0 z-0 h-[50vh] md:inset-0 md:h-full w-full object-cover object-[50%_10%] md:object-[55%_10%]"
+             className="absolute top-0 left-0 right-0 z-0 h-[50vh] md:inset-0 md:h-full w-full object-cover object-[50%_10%] md:object-[85%_10%]"
            >
              <source src={videoSrc} type="video/mp4" />
            </video>
@@ -84,6 +84,7 @@ export const MinimalistHero = ({
            <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/5 via-black/30 to-black/60" />
            <div className="hidden md:block absolute bottom-0 right-0 z-0 h-3/4 w-3/4" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 35%, transparent 70%)' }} />
            <div className="absolute bottom-0 left-0 right-0 z-0 h-32 md:h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
+           <div className="hidden md:block absolute top-0 bottom-0 right-0 z-0 w-24 bg-gradient-to-l from-black/50 to-transparent" />
          </>
        ) : (
          <div 
@@ -162,7 +163,7 @@ export const MinimalistHero = ({
       {/* Main Content Area */}
       <div className={cn(
         "relative w-full max-w-7xl flex-grow items-center",
-        videoSrc ? "flex flex-col md:flex-row justify-end md:pr-4 lg:pr-10 mt-[40vh] md:mt-0" : "grid grid-cols-1 md:grid-cols-3 mt-12 md:mt-0"
+        videoSrc ? "flex flex-col md:flex-row justify-end mt-[40vh] md:mt-0" : "grid grid-cols-1 md:grid-cols-3 mt-12 md:mt-0"
       )}>
         {/* Left Text Content */}
         <motion.div
