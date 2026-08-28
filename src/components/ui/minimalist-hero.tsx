@@ -81,8 +81,8 @@ export const MinimalistHero = ({
            </video>
            <div className="absolute top-0 left-0 right-0 z-0 h-[50vh] bg-gradient-to-b from-black/60 via-transparent to-black md:hidden" />
            <div className="absolute bottom-0 right-0 z-0 h-2/3 w-2/3 md:hidden" style={{ background: 'radial-gradient(ellipse at bottom right, black 0%, rgba(0,0,0,0.6) 35%, transparent 70%)' }} />
-           <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/20 via-black/70 to-black" />
-           <div className="hidden md:block absolute bottom-0 right-0 z-0 h-3/4 w-3/4" style={{ background: 'radial-gradient(ellipse at bottom right, black 0%, rgba(0,0,0,0.7) 30%, transparent 65%)' }} />
+           <div className="hidden md:block absolute inset-0 z-0 bg-gradient-to-r from-black/5 via-black/30 to-black/60" />
+           <div className="hidden md:block absolute bottom-0 right-0 z-0 h-3/4 w-3/4" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 35%, transparent 70%)' }} />
          </>
        ) : (
          <div 
@@ -170,16 +170,16 @@ export const MinimalistHero = ({
           transition={{ duration: 0.6, delay: 1 }}
           className={cn(
             "z-20 w-full",
-            videoSrc 
-              ? "flex flex-col items-center text-center md:w-1/2 lg:w-5/12 md:p-10 space-y-5 md:space-y-8 md:bg-black/30 md:backdrop-blur-xl md:rounded-3xl md:border md:border-white/10" 
+            videoSrc
+              ? "flex flex-col items-center text-center md:w-1/2 lg:w-5/12 md:p-8 space-y-4 md:space-y-6 md:bg-black/55 md:backdrop-blur-2xl md:rounded-3xl md:border md:border-white/10 md:shadow-[0_30px_80px_rgba(0,0,0,0.5)]"
               : "order-2 md:order-1 text-center md:text-left md:pr-12 pt-6 md:pt-0"
           )}
         >
           {videoSrc && (
-            <div className="pointer-events-none w-full flex flex-col items-center gap-3 mb-2">
-              <img src="/AA_logo.png" alt="Logo" className="w-14 h-14 object-contain brightness-200" />
-              <div className="w-12 h-[1px] bg-white/20 my-1" />
-              <h2 className="text-3xl md:text-4xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-stone-100 to-stone-400 tracking-tighter">
+            <div className="pointer-events-none w-full flex flex-col items-center gap-2">
+              <img src="/AA_logo.png" alt="Logo" className="w-12 h-12 object-contain brightness-200" />
+              <div className="w-10 h-[1px] bg-white/20" />
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-stone-100 to-stone-400 tracking-tighter">
                 ARISIO ANDRADE
               </h2>
             </div>
@@ -226,9 +226,9 @@ export const MinimalistHero = ({
 
           {/* Compact Stats */}
           {stats && (
-            <div className={cn("flex flex-row items-start justify-between w-full gap-2 md:gap-6 lg:gap-8 border-t border-stone-800/50 pt-8", videoSrc ? "" : "mt-12 md:justify-start pt-10")}>
+            <div className={cn("flex flex-row items-start justify-between w-full border-t border-white/10 pt-6", videoSrc ? "divide-x divide-white/10" : "gap-2 md:gap-6 lg:gap-8 mt-12 md:justify-start pt-10")}>
               {stats.map((stat, idx) => (
-                <div key={idx} className={cn("flex-1 flex flex-col space-y-1", videoSrc ? "items-center text-center" : "items-center md:items-start text-center md:text-left")}>
+                <div key={idx} className={cn("flex-1 flex flex-col space-y-1", videoSrc ? "items-center text-center px-2" : "items-center md:items-start text-center md:text-left")}>
                   <div className="text-2xl md:text-3xl font-black text-stone-100 tracking-tighter">{stat.value}</div>
                   <p className="text-[8px] md:text-[10px] font-bold text-stone-500 uppercase tracking-widest leading-tight">{stat.label}</p>
                 </div>
