@@ -14,7 +14,7 @@ export default function Projects() {
       isPrivate: true,
       isNew: true,
       image: '/projetos/empresarial/qual-visto-gv.png',
-      imagePosition: 'object-top',
+      imagePosition: 'object-left-top',
       gradient: 'from-sky-600/20 via-blue-600/10 to-transparent'
     },
     {
@@ -25,7 +25,7 @@ export default function Projects() {
       isPrivate: true,
       isNew: true,
       image: '/projetos/empresarial/sistema-comercial-gv.png',
-      imagePosition: 'object-top',
+      imagePosition: 'object-left-top',
       gradient: 'from-lime-600/20 via-green-600/10 to-transparent'
     },
     {
@@ -36,7 +36,7 @@ export default function Projects() {
       isPrivate: true,
       isNew: true,
       image: '/projetos/empresarial/portal-case-builder-gv.png',
-      imagePosition: 'object-top',
+      imagePosition: 'object-left-top',
       gradient: 'from-amber-600/20 via-orange-600/10 to-transparent'
     },
     {
